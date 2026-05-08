@@ -1,6 +1,5 @@
 "use client"
 
-import Navbar from '@/components/ui/Navbar'
 import { components } from '@/lib/components'
 import { previewRegistry } from '@/lib/preview-registry'
 import { notFound } from 'next/navigation'
@@ -39,10 +38,8 @@ export default function ComponentDetailPage({ params }: ComponentDetailPageProps
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen bg-bg">
-      <Navbar />
-      
-      <div className="flex h-[calc(100vh-4rem)] flex-col lg:flex-row">
+    <div className="min-h-screen bg-[#FBF9F7] pt-24">
+      <div className="flex h-[calc(100vh-6rem)] flex-col lg:flex-row">
         {/* Left Sidebar: Details & Code */}
         <aside className="w-full border-r border-border-custom bg-bg-card lg:w-[400px] xl:w-[500px]">
           <div className="flex h-full flex-col p-6">
