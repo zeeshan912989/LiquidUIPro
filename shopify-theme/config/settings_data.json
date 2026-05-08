@@ -1,0 +1,18 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "main": {
+          "type": "fashion-luxury",
+          "settings": {
+            "title": "Welcome to LiquidUI Pro"
+          }
+        }
+      },
+      "content_for_index": [
+        "main"
+      ]
+    }
+  }
+}
