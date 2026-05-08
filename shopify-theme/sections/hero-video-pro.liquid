@@ -1,0 +1,142 @@
+{% comment %}
+  LiquidUI Pro - Cinematic Video Hero
+{% endcomment %}
+
+<div class="video-hero-pro" id="Hero-{{ section.id }}">
+  <div class="video-container">
+    {% if section.settings.video_url != blank %}
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {% else %}
+      <div class="bg-placeholder" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2000');"></div>
+    {% endif %}
+    <div class="overlay" style="background: rgba(0,0,0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="container text-{{ section.settings.text_align }}">
+      <div class="badge-wrapper">
+        <span class="badge">{{ section.settings.badge_text }}</span>
+      </div>
+      <h1 class="title">{{ section.settings.title }}</h1>
+      <p class="description">{{ section.settings.text }}</p>
+      <div class="actions">
+        <a href="{{ section.settings.btn_link }}" class="btn-pro btn-primary">{{ section.settings.btn_text }}</a>
+        {% if section.settings.btn_2_text != blank %}
+          <a href="{{ section.settings.btn_2_link }}" class="btn-pro btn-secondary">{{ section.settings.btn_2_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video Hero Pro",
+  "settings": [
+    { "type": "text", "id": "video_url", "label": "Video MP4 URL", "default": "https://cdn.shopify.com/videos/c/o/v/f2462e74e6c94411a017e2e2e2e2e2e2.mp4" },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 10, "label": "Overlay Opacity", "default": 40 },
+    { "type": "text", "id": "badge_text", "label": "Badge Text", "default": "NEW ARRIVAL" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Cinematic Experience" },
+    { "type": "textarea", "id": "text", "label": "Description", "default": "Luxury meets performance in our latest collection." },
+    { "type": "select", "id": "text_align", "label": "Text Alignment", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" }
+    ], "default": "center" },
+    { "type": "text", "id": "btn_text", "label": "Primary Button", "default": "Shop Now" },
+    { "type": "url", "id": "btn_link", "label": "Primary Link" },
+    { "type": "text", "id": "btn_2_text", "label": "Secondary Button", "default": "Watch Film" },
+    { "type": "url", "id": "btn_2_link", "label": "Secondary Link" }
+  ],
+  "presets": [{ "name": "Video Hero Pro" }]
+}
+{% endschema %}
+
+<style>
+.video-hero-pro {
+  position: relative;
+  height: 90vh;
+  min-height: 600px;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+}
+.video-container { position: absolute; inset: 0; z-index: 1; }
+.bg-video, .bg-placeholder { width: 100%; height: 100%; object-fit: cover; background-size: cover; background-position: center; }
+.overlay { position: absolute; inset: 0; z-index: 2; }
+.content-wrapper { position: relative; z-index: 10; width: 100%; padding: 0 40px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.badge-wrapper { margin-bottom: 24px; }
+.badge { 
+  font-size: 11px; 
+  font-weight: 900; 
+  letter-spacing: 0.3em; 
+  color: #C9A96E; 
+  border: 1px solid rgba(201,169,110,0.3);
+  padding: 6px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.title { 
+  font-size: clamp(48px, 10vw, 96px); 
+  font-weight: 800; 
+  line-height: 0.9; 
+  text-transform: uppercase; 
+  margin-bottom: 32px; 
+  letter-spacing: -0.04em;
+}
+.description { 
+  font-size: 18px; 
+  max-width: 580px; 
+  margin-bottom: 48px; 
+  opacity: 0.8; 
+  line-height: 1.6;
+}
+.text-center .description { margin-left: auto; margin-right: auto; }
+.actions { display: flex; align-items: center; gap: 20px; }
+.text-center .actions { justify-content: center; }
+.btn-pro { 
+  display: inline-block; 
+  padding: 20px 48px; 
+  border-radius: 12px; 
+  font-weight: 900; 
+  text-transform: uppercase; 
+  font-size: 11px; 
+  letter-spacing: 0.2em; 
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+  text-decoration: none; 
+}
+.btn-primary { 
+  background: #C9A96E; 
+  color: white; 
+  box-shadow: 0 15px 40px rgba(201,169,110,0.3); 
+}
+.btn-primary:hover {
+  background: white;
+  color: black;
+  transform: translateY(-5px);
+}
+.btn-secondary { 
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15); 
+  color: white; 
+  backdrop-filter: blur(15px); 
+}
+.btn-secondary:hover {
+  background: white;
+  color: black;
+  border-color: white;
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 50px; }
+  .actions { flex-direction: column; width: 100%; }
+  .btn-pro { width: 100%; text-align: center; }
+  .btn-secondary { margin-left: 0; }
+}
+</style>
