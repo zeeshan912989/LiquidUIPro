@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { ShoppingCart, Search, Menu, X, ArrowRight, Play, Cpu, Zap, Globe, Shield } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -194,5 +195,3 @@ export default function TechMinimalTemplate() {
     </div>
   )
 }
-
-import Link from 'next/link'
