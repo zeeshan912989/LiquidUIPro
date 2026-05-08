@@ -4,43 +4,51 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { 
   Layout,
-  ArrowRight
+  ArrowRight,
+  Monitor,
+  Layers
 } from 'lucide-react'
 
 export default function TemplatesPage() {
   return (
-    <div className="min-h-screen bg-[#F9F7F4] text-[#0A0A0A] font-inter">
+    <div className="min-h-screen bg-[#FBF9F7] text-[#0A0A0A] font-inter selection:bg-[#C9A96E] selection:text-white overflow-x-hidden">
       {/* Navigation Header */}
-      <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-2xl border-b border-[#E4E0D9] px-6 py-4 md:px-12">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="h-10 w-10 bg-[#C9A96E] rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-               <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-               </svg>
+      <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-md border-b border-[#E4E0D9] px-6 py-4 md:px-12">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-4 group">
+            <div className="h-12 w-12 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+               <img src="/icon.svg" alt="logo" className="h-full w-full object-contain" />
             </div>
-            <div className="flex flex-col -space-y-1">
-              <span className="text-xl font-black uppercase tracking-tighter font-outfit">Liquid UI <span className="text-[#C9A96E]">Pro</span></span>
-              <span className="text-[8px] font-black uppercase tracking-[0.3em] text-[#C9A96E]/60 pl-0.5">Created by SHAH</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-[0.2em] uppercase leading-none font-outfit text-[#0A0A0A]">LIQUIDUI<span className="text-[#C9A96E]">PRO</span></span>
+              <span className="text-[8px] font-black uppercase tracking-[0.5em] text-[#C9A96E]/60 mt-1.5">Design by SHAH</span>
             </div>
           </Link>
-          <Link href="/" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Back to Home</Link>
+          <div className="flex items-center gap-8">
+            <Link href="/" className="text-[10px] font-black uppercase tracking-[0.3em] text-[#7A7570] hover:text-black transition-colors">Back to Home</Link>
+            <Link href="/pricing" className="px-6 py-2 bg-[#C9A96E] text-white rounded-lg text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#A8853F] transition-all shadow-lg shadow-[#C9A96E]/20">Get Pro</Link>
+          </div>
         </div>
       </nav>
 
-      <main className="pt-40 pb-24 px-6 md:px-12 max-w-[1440px] mx-auto">
+      <main className="pt-48 pb-24 px-6 md:px-12 max-w-[1400px] mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-32 text-center"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter mb-12 italic uppercase underline decoration-[#C9A96E] decoration-8 font-outfit">Master Blueprints.</h1>
-          <p className="max-w-3xl mx-auto text-xl md:text-3xl text-[#7A7570] font-medium leading-relaxed">
-            Elite-tier Shopify theme templates designed for high-SKU catalogs and luxury brand narratives. Launch in minutes, scale forever.
+          <div className="inline-block px-4 py-1.5 bg-white border border-[#F3EFE9] rounded-full text-[12px] font-bold text-[#C9A96E] mb-8 uppercase tracking-widest">
+             Theme Blueprints
+          </div>
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-12">
+             Master <span className="text-[#C9A96E]">Archetypes.</span>
+          </h1>
+          <p className="max-w-3xl mx-auto text-xl text-[#666] font-medium leading-relaxed">
+            Elite-tier Shopify theme templates designed for high-SKU catalogs and luxury brand narratives. Launch in minutes.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
             { title: 'Luxury Atelier', type: 'Premium', desc: 'A sophisticated design framework with high-fidelity animated cart drawers and mega navigation systems.' },
             { title: 'Next-Gen SaaS', type: 'Clean', desc: 'The definitive artifact for digital product stores, featuring complex grid systems and elite dark-mode transitions.' },
@@ -52,25 +60,31 @@ export default function TemplatesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="group relative bg-white border border-[#E4E0D9] rounded-[4rem] overflow-hidden hover:border-[#C9A96E] transition-all shadow-sm"
+              className="group relative bg-white border border-[#E4E0D9] rounded-[3.5rem] overflow-hidden hover:border-[#C9A96E] transition-all shadow-sm flex flex-col"
             >
-              <div className="aspect-video bg-[#F9F7F4] flex items-center justify-center relative overflow-hidden">
-                 <div className="absolute top-12 left-12 bg-white px-6 py-2.5 rounded-full border border-[#E4E0D9] text-[10px] font-black uppercase tracking-[0.3em] text-[#7A7570] italic">
-                   ARCHETYPE: {item.type}
+              <div className="aspect-[16/10] bg-[#FBF9F7] flex items-center justify-center relative overflow-hidden p-12">
+                 <div className="absolute top-8 left-8 bg-white px-4 py-1.5 rounded-full border border-[#E4E0D9] text-[9px] font-black uppercase tracking-[0.2em] text-[#7A7570]">
+                   TYPE: {item.type}
                  </div>
-                 <Layout className="h-24 w-24 text-[#E4E0D9] group-hover:scale-110 group-hover:text-[#C9A96E] transition-all duration-1000" />
+                 <div className="w-full h-full border border-[#E4E0D9] rounded-2xl bg-white shadow-lg flex items-center justify-center">
+                    <Layout className="h-16 w-16 text-[#E4E0D9] group-hover:scale-110 transition-all duration-700" />
+                 </div>
               </div>
-              <div className="p-16">
-                 <h3 className="text-4xl font-black uppercase tracking-tighter italic mb-6 font-outfit">{item.title}</h3>
-                 <p className="text-lg text-[#7A7570] font-medium leading-relaxed mb-12">{item.desc}</p>
-                 <button className="px-12 py-6 bg-[#0A0A0A] text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#C9A96E] transition-all flex items-center gap-4 group/btn">
-                    Launch Artifact <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-3 transition-transform" />
+              <div className="p-12">
+                 <h3 className="text-3xl font-bold tracking-tight mb-4">{item.title}</h3>
+                 <p className="text-[#666] leading-relaxed mb-10 text-[15px]">{item.desc}</p>
+                 <button className="px-10 py-4 bg-[#0A0A0A] text-white rounded-xl text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#C9A96E] transition-all flex items-center gap-4 group/btn w-fit">
+                    Launch Artifact <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-2 transition-transform" />
                  </button>
               </div>
             </motion.div>
           ))}
         </div>
       </main>
+
+      <div className="py-8 bg-white border-t border-[#E4E0D9] text-center mt-20">
+         <p className="text-[12px] font-bold text-[#7A7570] uppercase tracking-[0.4em]">Engineered for Shopify. Design by SHAH.</p>
+      </div>
     </div>
   )
 }
