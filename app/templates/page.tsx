@@ -4,46 +4,45 @@ import Link from 'next/link'
 import { Search, Eye, Copy, ChevronDown, Grid, List, Sparkles, ChevronLeft, ChevronRight, LayoutTemplate, Box, RefreshCw, Monitor, Check } from 'lucide-react'
 
 const browseLinks = [
-   { name: 'All Templates', count: 342, active: true },
-   { name: 'Headers', count: 42 },
-   { name: 'Hero Sections', count: 68 },
-   { name: 'Product Sections', count: 72 },
-   { name: 'Collection Pages', count: 36 },
-   { name: 'Product Pages', count: 28 },
-   { name: 'Cart & Checkout', count: 24 },
-   { name: 'Footers', count: 32 },
-   { name: 'Page Templates', count: 40 },
+   { name: 'All Templates', count: 48, active: true },
+   { name: 'Headers', count: 8 },
+   { name: 'Hero Sections', count: 12 },
+   { name: 'Product Sections', count: 10 },
+   { name: 'Collection Pages', count: 6 },
+   { name: 'Product Pages', count: 4 },
+   { name: 'Cart & Checkout', count: 3 },
+   { name: 'Footers', count: 5 },
 ];
 
 const styles = [
-   { name: 'Minimal', count: 82 },
-   { name: 'Modern', count: 120 },
-   { name: 'Luxury', count: 64 },
-   { name: 'Bold', count: 44 },
-   { name: 'Creative', count: 32 },
+   { name: 'Minimal', count: 18 },
+   { name: 'Modern', count: 24 },
+   { name: 'Luxury', count: 12 },
+   { name: 'Bold', count: 8 },
+   { name: 'Creative', count: 6 },
 ];
 
 const industries = [
-   { name: 'Fashion', count: 86 },
-   { name: 'Beauty', count: 42 },
-   { name: 'Electronics', count: 38 },
-   { name: 'Home & Decor', count: 36 },
-   { name: 'Jewelry', count: 28 },
+   { name: 'Fashion', count: 22 },
+   { name: 'Beauty', count: 14 },
+   { name: 'Electronics', count: 12 },
+   { name: 'Home & Decor', count: 10 },
+   { name: 'Jewelry', count: 8 },
 ];
 
 const templates = [
    { id: 'fashion-luxury', title: 'Fashion Luxury Template', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Luxury', 'Fashion'] },
-   { id: 'tech-minimal', title: 'Tech Minimal Template', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Modern', 'Tech'] },
-   { id: 3, title: 'Beauty Hero Split', image: '/assets/images/hero-penthouse.jpg', tags: ['Hero', 'Minimal'] },
-   { id: 4, title: 'Product Grid - Clean', image: '/assets/images/hero1.jpeg', tags: ['Product', 'Modern'] },
-   { id: 5, title: 'Product Slider - Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Product', 'Minimal'] },
-   { id: 6, title: 'Collection List - Sidebar', image: '/assets/images/hero2.jpeg', tags: ['Collection', 'Modern'] },
-   { id: 7, title: 'Cart Drawer - Side', image: '/assets/images/hero1.jpeg', tags: ['Cart', 'Modern'] },
-   { id: 8, title: 'One Page Checkout', image: '/assets/images/hero-penthouse.jpg', tags: ['Checkout', 'Minimal'] },
+   { id: 'tech-minimal', title: 'Tech Minimal Template', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Modern', 'Tech'] },
+   { id: 3, title: 'Beauty Hero Split', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Hero', 'Minimal', 'Beauty'] },
+   { id: 4, title: 'Product Grid - Clean', image: '/assets/images/hero2.jpeg', tags: ['Product', 'Modern'] },
+   { id: 5, title: 'Product Slider - Modern', image: '/assets/images/hero-penthouse.jpg', tags: ['Product', 'Minimal'] },
+   { id: 6, title: 'Collection List - Sidebar', image: '/assets/images/hero1.jpeg', tags: ['Collection', 'Modern'] },
+   { id: 7, title: 'Cart Drawer - Side', image: '/assets/images/hero2.jpeg', tags: ['Cart', 'Modern'] },
+   { id: 8, title: 'One Page Checkout', image: '/assets/images/hero-luxury-living.jpg', tags: ['Checkout', 'Minimal'] },
    { id: 9, title: 'Footer - Dark Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Footer', 'Modern'] },
-   { id: 10, title: 'Landing Page - Skincare', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Beauty'] },
-   { id: 11, title: 'Landing Page - Electronics', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Electronics'] },
-   { id: 12, title: 'Landing Page - Jewelry', image: '/assets/images/hero2.jpeg', tags: ['Page', 'Luxury'] },
+   { id: 10, title: 'Landing Page - Skincare', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Beauty'] },
+   { id: 11, title: 'Landing Page - Electronics', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Electronics'] },
+   { id: 12, title: 'Landing Page - Jewelry', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Luxury'] },
 ];
 
 export default function TemplatesPage() {
