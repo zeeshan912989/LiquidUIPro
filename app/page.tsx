@@ -351,6 +351,30 @@ export default function LandingPage() {
             </div>
          </section>
 
+         {/* Feature Grid */}
+         <section className="py-24 px-6 md:px-12 bg-white">
+            <div className="max-w-[1400px] mx-auto">
+               <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-outfit">Everything you need to build faster</h2>
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                  {[
+                     { title: 'Component Library', desc: '100+ modern, responsive Shopify components.', icon: Layout },
+                     { title: 'AI Generation', desc: 'Generate sections with AI using simple prompts.', icon: Plus },
+                     { title: 'Drag & Drop Builder', desc: 'Visual builder with live preview and easy controls.', icon: Pencil },
+                     { title: 'Clean Liquid Code', desc: 'Export clean, schema-ready Liquid code.', icon: Code },
+                     { title: 'Fully Responsive', desc: 'All components are mobile, tablet & desktop ready.', icon: Smartphone },
+                  ].map((item, i) => (
+                     <div key={i} className="p-8 bg-[#FBF9F7] rounded-3xl border border-[#F3EFE9] group hover:border-[#C9A96E] transition-all shadow-sm">
+                        <div className="h-12 w-12 bg-white rounded-2xl border border-[#F3EFE9] flex items-center justify-center mb-6 text-[#C9A96E] group-hover:scale-110 transition-transform shadow-sm">
+                           <item.icon className="h-6 w-6" />
+                        </div>
+                        <h4 className="font-bold text-[15px] mb-3 uppercase tracking-tight">{item.title}</h4>
+                        <p className="text-[13px] text-[#888] leading-relaxed font-medium">{item.desc}</p>
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </section>
+
          {/* Bottom Footer Text */}
          <div className="py-8 bg-[#FBF9F7] border-t border-[#E4E0D9] text-center">
             <p className="text-[14px] font-semibold text-[#555]">Built for Shopify. Loved by developers. Trusted by brands.</p>
