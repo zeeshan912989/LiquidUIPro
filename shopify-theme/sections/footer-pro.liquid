@@ -1,0 +1,73 @@
+{% comment %}
+  LiquidUI Pro - Modern Luxury Footer
+{% endcomment %}
+
+<footer class="footer-pro">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h2 class="footer-logo">{{ shop.name }}</h2>
+        <p>Premium Shopify components for the next generation of e-commerce stores.</p>
+        <div class="social-links">
+           <a href="#">Instagram</a>
+           <a href="#">Twitter</a>
+        </div>
+      </div>
+      
+      <div class="footer-menu">
+        <h4>Explore</h4>
+        <nav>
+           {% for link in linklists.footer.links %}
+             <a href="{{ link.url }}">{{ link.title }}</a>
+           {% endfor %}
+        </nav>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Join our newsletter for exclusive drops and design insights.</p>
+        <form class="newsletter-form">
+           <input type="email" placeholder="your@email.com">
+           <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Built with LiquidUI Pro.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer Pro",
+  "settings": []
+}
+{% endschema %}
+
+<style>
+.footer-pro {
+  background: #1A1A1A;
+  color: white;
+  padding: 100px 0 40px;
+  font-family: 'Outfit', sans-serif;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 80px; margin-bottom: 80px; }
+.footer-info h2 { font-size: 24px; font-weight: 900; letter-spacing: 0.2em; margin-bottom: 24px; }
+.footer-info p { opacity: 0.6; line-height: 1.6; max-width: 300px; font-size: 14px; }
+.footer-menu h4, .footer-newsletter h4 { font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 30px; color: #C9A96E; }
+.footer-menu nav { display: flex; flex-direction: column; gap: 15px; }
+.footer-menu a { color: white; opacity: 0.6; text-decoration: none; font-size: 14px; transition: 0.3s; }
+.footer-menu a:hover { opacity: 1; color: #C9A96E; }
+
+.newsletter-form { display: flex; gap: 10px; margin-top: 20px; }
+.newsletter-form input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 8px; color: white; flex: 1; outline: none; }
+.newsletter-form button { background: #C9A96E; border: none; padding: 0 30px; border-radius: 8px; color: white; font-weight: 900; cursor: pointer; }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; text-align: center; opacity: 0.3; font-size: 12px; }
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 60px; }
+}
+</style>

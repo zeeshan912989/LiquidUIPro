@@ -1,0 +1,97 @@
+{% comment %}
+  LiquidUI Pro - Premium Header with Mobile Drawer
+{% endcomment %}
+
+<header class="header-pro header-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="header-main">
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle md:hidden" id="MobileToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Logo -->
+      <div class="header-logo">
+        <a href="/">{{ section.settings.logo_text | default: shop.name }}</a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav hidden md:flex">
+        {% for link in linklists[section.settings.menu].links %}
+          <div class="nav-item">
+            <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+          </div>
+        {% endfor %}
+      </nav>
+
+      <!-- Icons -->
+      <div class="header-icons">
+        <button class="icon-btn search-trigger">{% render 'icon-search' %}</button>
+        <a href="/cart" class="icon-btn cart-btn">
+          {% render 'icon-bag' %}
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="MobileDrawer">
+    <div class="drawer-header">
+       <button id="CloseDrawer">Close</button>
+    </div>
+    <nav class="mobile-nav">
+      {% for link in linklists[section.settings.menu].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header Pro",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "ELYSÉ" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}
+
+<style>
+.header-pro {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  border-bottom: 1px solid #F3EFE9;
+  padding: 20px 0;
+  font-family: 'Outfit', sans-serif;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.header-main { display: flex; justify-content: space-between; align-items: center; }
+.header-logo a { font-size: 24px; font-weight: 900; letter-spacing: 0.2em; text-decoration: none; color: #1A1A1A; }
+.desktop-nav { gap: 40px; }
+.nav-link { text-decoration: none; color: #1A1A1A; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; transition: opacity 0.3s; }
+.nav-link:hover { opacity: 1; color: #C9A96E; }
+.header-icons { display: flex; gap: 20px; align-items: center; }
+.icon-btn { background: none; border: none; cursor: pointer; color: #1A1A1A; position: relative; }
+.cart-count { position: absolute; -top: 8px; -right: 8px; background: #C9A96E; color: white; font-size: 8px; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+
+.mobile-drawer { position: fixed; inset: 0; background: white; transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 2000; }
+.mobile-drawer.active { transform: translateX(0); }
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+</style>
+
+<script>
+document.getElementById('MobileToggle')?.addEventListener('click', () => {
+  document.getElementById('MobileDrawer')?.classList.add('active');
+});
+document.getElementById('CloseDrawer')?.addEventListener('click', () => {
+  document.getElementById('MobileDrawer')?.classList.remove('active');
+});
+</script>

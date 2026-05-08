@@ -1,13 +1,33 @@
 {
   "sections": {
-    "main": {
-      "type": "fashion-luxury",
+    "header": {
+      "type": "header-pro",
       "settings": {
-        "title": "Welcome to LiquidUI Pro"
+        "logo_text": "ELYSÉ PRO"
       }
+    },
+    "hero": {
+      "type": "hero-video-pro",
+      "settings": {
+        "title": "Define Your Essence",
+        "text": "The 2026 Collection is now available."
+      }
+    },
+    "products": {
+      "type": "product-grid-pro",
+      "settings": {
+        "title": "Bestsellers"
+      }
+    },
+    "footer": {
+      "type": "footer-pro",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "header",
+    "hero",
+    "products",
+    "footer"
   ]
 }

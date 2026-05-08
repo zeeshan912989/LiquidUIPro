@@ -1,0 +1,70 @@
+{% comment %}
+  LiquidUI Pro - Interactive Product Grid
+{% endcomment %}
+
+<section class="product-grid-pro section-{{ section.id }}">
+  <div class="container">
+    <div class="section-header">
+       <span class="sub-title">{{ section.settings.sub_title }}</span>
+       <h2 class="title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="products-container">
+      {% for i in (1..4) %}
+        <div class="product-card">
+          <div class="product-image">
+             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800" alt="Product">
+             <div class="product-overlay">
+                <button class="quick-add">Quick Add</button>
+             </div>
+          </div>
+          <div class="product-meta">
+             <h3 class="product-title">Premium Essential #{{ i }}</h3>
+             <span class="product-price">$129.00</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Grid Pro",
+  "settings": [
+    { "type": "text", "id": "sub_title", "label": "Sub Title", "default": "Featured Collection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Timeless Essentials" }
+  ],
+  "presets": [{ "name": "Product Grid Pro" }]
+}
+{% endschema %}
+
+<style>
+.product-grid-pro { padding: 120px 0; background: #FCFAF8; font-family: 'Outfit', sans-serif; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.sub-title { font-size: 11px; font-weight: 900; letter-spacing: 0.3em; color: #C9A96E; text-transform: uppercase; margin-bottom: 15px; display: block; }
+.title { font-size: 48px; font-weight: 800; color: #1A1A1A; text-transform: uppercase; letter-spacing: -0.02em; }
+
+.products-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.product-card { background: white; border-radius: 12px; overflow: hidden; transition: 0.4s; }
+.product-image { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
+.product-card:hover .product-image img { transform: scale(1.1); }
+
+.product-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: 0.4s; }
+.product-card:hover .product-overlay { opacity: 1; }
+.quick-add { width: 100%; background: white; color: black; border: none; padding: 15px; border-radius: 8px; font-weight: 900; text-transform: uppercase; font-size: 10px; cursor: pointer; transition: 0.3s; }
+.quick-add:hover { background: #1A1A1A; color: white; }
+
+.product-meta { padding: 25px; text-align: center; }
+.product-title { font-size: 14px; font-weight: 800; margin-bottom: 10px; color: #1A1A1A; }
+.product-price { font-size: 14px; color: #C9A96E; font-weight: 700; }
+
+@media (max-width: 1024px) {
+  .products-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .products-container { grid-template-columns: 1fr; }
+  .title { font-size: 32px; }
+}
+</style>
