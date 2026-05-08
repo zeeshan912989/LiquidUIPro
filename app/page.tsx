@@ -46,13 +46,13 @@ export default function LandingPage() {
         scrolled ? "bg-white/90 backdrop-blur-md border-b border-[#E4E0D9] py-3" : "bg-transparent py-6"
       )}>
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-5 group">
-            <div className="h-14 w-14 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+          <Link href="/" className="flex items-center gap-4 group">
+            <div className="h-16 w-16 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                <img src="/icon.svg" alt="logo" className="h-full w-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-black tracking-[0.2em] uppercase leading-none font-outfit text-[#0A0A0A]">LIQUIDUI<span className="text-[#C9A96E]">PRO</span></span>
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#C9A96E]/60 mt-2">Created by SHAH</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#C9A96E]/60 mt-2">Design by SHAH</span>
             </div>
           </Link>
 
