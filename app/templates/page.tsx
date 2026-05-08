@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { Search, Eye, ChevronDown, LayoutTemplate, Box, RefreshCw, Monitor, Check } from 'lucide-react'
+import { Search, Eye, ChevronDown, LayoutTemplate, Box, RefreshCw, Monitor, Check, Sparkles } from 'lucide-react'
 
 const browseLinks = [
    { name: 'All Templates', count: 48, slug: 'all' },
