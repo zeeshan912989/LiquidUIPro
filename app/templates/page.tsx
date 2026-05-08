@@ -1,17 +1,18 @@
 "use client"
 
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { Search, Eye, Copy, ChevronDown, Grid, List, Sparkles, ChevronLeft, ChevronRight, LayoutTemplate, Box, RefreshCw, Monitor, Check } from 'lucide-react'
+import { Search, Eye, ChevronDown, LayoutTemplate, Box, RefreshCw, Monitor, Check } from 'lucide-react'
 
 const browseLinks = [
-   { name: 'All Templates', count: 48, active: true },
-   { name: 'Headers', count: 8 },
-   { name: 'Hero Sections', count: 12 },
-   { name: 'Product Sections', count: 10 },
-   { name: 'Collection Pages', count: 6 },
-   { name: 'Product Pages', count: 4 },
-   { name: 'Cart & Checkout', count: 3 },
-   { name: 'Footers', count: 5 },
+   { name: 'All Templates', count: 48, slug: 'all' },
+   { name: 'Headers', count: 8, slug: 'Header' },
+   { name: 'Hero Sections', count: 12, slug: 'Hero' },
+   { name: 'Product Sections', count: 10, slug: 'Product' },
+   { name: 'Collection Pages', count: 6, slug: 'Collection' },
+   { name: 'Product Pages', count: 4, slug: 'Page' },
+   { name: 'Cart & Checkout', count: 3, slug: 'Cart' },
+   { name: 'Footers', count: 5, slug: 'Footer' },
 ];
 
 const styles = [
@@ -33,19 +34,44 @@ const industries = [
 const templates = [
    { id: 'fashion-luxury', title: 'Fashion Luxury Template', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Luxury', 'Fashion'] },
    { id: 'tech-minimal', title: 'Tech Minimal Template', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Modern', 'Tech'] },
-   { id: 3, title: 'Beauty Hero Split', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Hero', 'Minimal', 'Beauty'] },
-   { id: 4, title: 'Product Grid - Clean', image: '/assets/images/hero2.jpeg', tags: ['Product', 'Modern'] },
-   { id: 5, title: 'Product Slider - Modern', image: '/assets/images/hero-penthouse.jpg', tags: ['Product', 'Minimal'] },
-   { id: 6, title: 'Collection List - Sidebar', image: '/assets/images/hero1.jpeg', tags: ['Collection', 'Modern'] },
-   { id: 7, title: 'Cart Drawer - Side', image: '/assets/images/hero2.jpeg', tags: ['Cart', 'Modern'] },
-   { id: 8, title: 'One Page Checkout', image: '/assets/images/hero-luxury-living.jpg', tags: ['Checkout', 'Minimal'] },
-   { id: 9, title: 'Footer - Dark Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Footer', 'Modern'] },
-   { id: 10, title: 'Landing Page - Skincare', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Beauty'] },
-   { id: 11, title: 'Landing Page - Electronics', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Electronics'] },
-   { id: 12, title: 'Landing Page - Jewelry', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Luxury'] },
+   { id: 'beauty-hero', title: 'Beauty Hero Split', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Hero', 'Minimal', 'Beauty'] },
+   { id: 'product-grid', title: 'Product Grid - Clean', image: '/assets/images/hero2.jpeg', tags: ['Product', 'Modern', 'Fashion'] },
+   { id: 'product-slider', title: 'Product Slider - Modern', image: '/assets/images/hero-penthouse.jpg', tags: ['Product', 'Minimal', 'Luxury'] },
+   { id: 'collection-list', title: 'Collection List - Sidebar', image: '/assets/images/hero1.jpeg', tags: ['Collection', 'Modern', 'Fashion'] },
+   { id: 'cart-drawer', title: 'Cart Drawer - Side', image: '/assets/images/hero2.jpeg', tags: ['Cart', 'Modern'] },
+   { id: 'one-page-checkout', title: 'One Page Checkout', image: '/assets/images/hero-luxury-living.jpg', tags: ['Checkout', 'Minimal'] },
+   { id: 'footer-dark', title: 'Footer - Dark Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Footer', 'Modern'] },
+   { id: 'landing-skincare', title: 'Landing Page - Skincare', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Beauty'] },
+   { id: 'landing-electronics', title: 'Landing Page - Electronics', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Electronics'] },
+   { id: 'landing-jewelry', title: 'Landing Page - Jewelry', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Luxury'] },
 ];
 
 export default function TemplatesPage() {
+   const [searchQuery, setSearchQuery] = useState('')
+   const [activeCategory, setActiveCategory] = useState('all')
+   const [activeStyle, setActiveStyle] = useState<string | null>(null)
+   const [activeIndustry, setActiveIndustry] = useState<string | null>(null)
+
+   const filteredTemplates = useMemo(() => {
+      return templates.filter(template => {
+         const matchesSearch = template.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              template.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+         
+         const matchesCategory = activeCategory === 'all' || template.tags.includes(activeCategory)
+         const matchesStyle = !activeStyle || template.tags.includes(activeStyle)
+         const matchesIndustry = !activeIndustry || template.tags.includes(activeIndustry)
+
+         return matchesSearch && matchesCategory && matchesStyle && matchesIndustry
+      })
+   }, [searchQuery, activeCategory, activeStyle, activeIndustry])
+
+   const resetFilters = () => {
+      setSearchQuery('')
+      setActiveCategory('all')
+      setActiveStyle(null)
+      setActiveIndustry(null)
+   }
+
    return (
       <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-24">
 
@@ -66,6 +92,8 @@ export default function TemplatesPage() {
                   <div className="relative max-w-md mb-8">
                      <input
                         type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search templates, sections..."
                         className="w-full pl-6 pr-12 py-4 bg-white border border-[#E4E0D9] rounded-xl outline-none focus:border-[#C9A96E] transition-colors shadow-sm text-sm"
                      />
@@ -76,24 +104,25 @@ export default function TemplatesPage() {
                   <div className="flex items-center gap-3 flex-wrap">
                      <span className="text-[11px] font-bold text-gray-900 mr-2">Popular:</span>
                      {['Hero', 'Product', 'Collection', 'Header', 'Footer', 'Cart'].map(tag => (
-                        <div key={tag} className="px-4 py-1.5 bg-white border border-[#E4E0D9] rounded-full text-[10px] font-bold text-gray-500 hover:border-[#C9A96E] hover:text-[#C9A96E] cursor-pointer transition-colors shadow-sm">
+                        <button 
+                           key={tag} 
+                           onClick={() => setSearchQuery(tag)}
+                           className={`px-4 py-1.5 border rounded-full text-[10px] font-bold transition-colors shadow-sm ${searchQuery === tag ? 'bg-[#C9A96E] text-white border-[#C9A96E]' : 'bg-white border-[#E4E0D9] text-gray-500 hover:border-[#C9A96E] hover:text-[#C9A96E]'}`}
+                        >
                            {tag}
-                        </div>
+                        </button>
                      ))}
                   </div>
                </div>
 
                {/* Hero Mockup Cards */}
                <div className="lg:w-1/2 relative h-[400px] hidden lg:block">
-                  {/* Card 1 (Back Left) */}
                   <div className="absolute top-10 left-0 w-[240px] aspect-[9/16] bg-white rounded-2xl shadow-xl border border-gray-100 p-2 transform -rotate-6 opacity-80 overflow-hidden">
                      <img src="/assets/images/hero-penthouse.jpg" className="w-full h-full object-cover rounded-xl" alt="mockup 1" />
                   </div>
-                  {/* Card 2 (Back Right) */}
                   <div className="absolute top-20 right-0 w-[260px] aspect-[9/16] bg-white rounded-2xl shadow-xl border border-gray-100 p-2 transform rotate-6 opacity-80 overflow-hidden">
                      <img src="/assets/images/hero-liquid-gold.jpg" className="w-full h-full object-cover rounded-xl" alt="mockup 2" />
                   </div>
-                  {/* Card 3 (Front Center) */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] aspect-[9/16] bg-white rounded-3xl shadow-2xl border border-gray-100 p-2 z-10 overflow-hidden">
                      <div className="w-full h-full bg-[#F5F2EE] rounded-2xl relative overflow-hidden flex flex-col">
                         <div className="p-4 flex justify-between items-center bg-white border-b border-gray-50">
@@ -126,7 +155,10 @@ export default function TemplatesPage() {
                   <ul className="space-y-1.5">
                      {browseLinks.map((link, i) => (
                         <li key={i}>
-                           <button className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-[13px] font-bold transition-colors ${link.active ? 'bg-[#C9A96E] text-white shadow-md' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>
+                           <button 
+                              onClick={() => setActiveCategory(link.slug)}
+                              className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-[13px] font-bold transition-colors ${activeCategory === link.slug ? 'bg-[#C9A96E] text-white shadow-md' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}
+                           >
                               <span className="flex items-center gap-3">
                                  {i === 0 && <LayoutTemplate className="h-4 w-4 opacity-70" />}
                                  {i === 1 && <Monitor className="h-4 w-4 opacity-70" />}
@@ -134,7 +166,7 @@ export default function TemplatesPage() {
                                  {i > 2 && <div className="h-1.5 w-1.5 rounded-full bg-current opacity-30 ml-1.5" />}
                                  {link.name}
                               </span>
-                              <span className={`text-[10px] ${link.active ? 'text-white/80' : 'text-gray-400'}`}>{link.count}</span>
+                              <span className={`text-[10px] ${activeCategory === link.slug ? 'text-white/80' : 'text-gray-400'}`}>{link.count}</span>
                            </button>
                         </li>
                      ))}
@@ -153,12 +185,16 @@ export default function TemplatesPage() {
                      </div>
                      <ul className="space-y-3">
                         {styles.map((style, i) => (
-                           <li key={i} className="flex items-center justify-between group cursor-pointer">
+                           <li 
+                              key={i} 
+                              onClick={() => setActiveStyle(activeStyle === style.name ? null : style.name)}
+                              className="flex items-center justify-between group cursor-pointer"
+                           >
                               <div className="flex items-center gap-3">
-                                 <div className="h-4 w-4 rounded border border-gray-300 flex items-center justify-center group-hover:border-[#C9A96E] transition-colors">
-                                    {i === 0 && <Check className="h-3 w-3 text-[#C9A96E]" />}
+                                 <div className={`h-4 w-4 rounded border flex items-center justify-center transition-colors ${activeStyle === style.name ? 'border-[#C9A96E] bg-[#C9A96E]/10' : 'border-gray-300 group-hover:border-[#C9A96E]'}`}>
+                                    {activeStyle === style.name && <Check className="h-3 w-3 text-[#C9A96E]" />}
                                  </div>
-                                 <span className="text-[13px] text-gray-600 group-hover:text-gray-900">{style.name}</span>
+                                 <span className={`text-[13px] transition-colors ${activeStyle === style.name ? 'text-[#C9A96E] font-bold' : 'text-gray-600 group-hover:text-gray-900'}`}>{style.name}</span>
                               </div>
                               <span className="text-[10px] text-gray-400">{style.count}</span>
                            </li>
@@ -174,24 +210,28 @@ export default function TemplatesPage() {
                      </div>
                      <ul className="space-y-3">
                         {industries.map((ind, i) => (
-                           <li key={i} className="flex items-center justify-between group cursor-pointer">
+                           <li 
+                              key={i} 
+                              onClick={() => setActiveIndustry(activeIndustry === ind.name ? null : ind.name)}
+                              className="flex items-center justify-between group cursor-pointer"
+                           >
                               <div className="flex items-center gap-3">
-                                 <div className="h-4 w-4 rounded border border-gray-300 flex items-center justify-center group-hover:border-[#C9A96E] transition-colors" />
-                                 <span className="text-[13px] text-gray-600 group-hover:text-gray-900">{ind.name}</span>
+                                 <div className={`h-4 w-4 rounded border flex items-center justify-center transition-colors ${activeIndustry === ind.name ? 'border-[#C9A96E] bg-[#C9A96E]/10' : 'border-gray-300 group-hover:border-[#C9A96E]'}`}>
+                                    {activeIndustry === ind.name && <Check className="h-3 w-3 text-[#C9A96E]" />}
+                                 </div>
+                                 <span className={`text-[13px] transition-colors ${activeIndustry === ind.name ? 'text-[#C9A96E] font-bold' : 'text-gray-600 group-hover:text-gray-900'}`}>{ind.name}</span>
                               </div>
                               <span className="text-[10px] text-gray-400">{ind.count}</span>
                            </li>
                         ))}
-                        <li>
-                           <button className="text-[12px] font-bold text-gray-400 hover:text-gray-900 mt-2 flex items-center gap-1">
-                              + Show More
-                           </button>
-                        </li>
                      </ul>
                   </div>
 
                   {/* Reset Button */}
-                  <button className="w-full py-3 bg-white border border-gray-200 rounded-lg text-[12px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-gray-600">
+                  <button 
+                     onClick={resetFilters}
+                     className="w-full py-3 bg-white border border-gray-200 rounded-lg text-[12px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-gray-600"
+                  >
                      <RefreshCw className="h-3 w-3" /> Reset Filters
                   </button>
                </div>
@@ -202,78 +242,71 @@ export default function TemplatesPage() {
                {/* Top Bar */}
                <div className="flex flex-col sm:flex-row items-center justify-between mb-8 pb-6 border-b border-gray-100">
                   <div>
-                     <h2 className="text-2xl font-bold text-gray-900">All Templates</h2>
-                     <p className="text-sm text-gray-500 mt-1">342 templates found</p>
+                     <h2 className="text-2xl font-bold text-gray-900">
+                        {activeCategory === 'all' ? 'All Templates' : `${activeCategory}s`}
+                     </h2>
+                     <p className="text-sm text-gray-500 mt-1">{filteredTemplates.length} templates found</p>
                   </div>
                   <div className="flex items-center gap-4 mt-4 sm:mt-0">
                      <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-gray-300 transition-colors">
                         <span className="text-[12px] font-bold text-gray-700">Sort by: Newest</span>
                         <ChevronDown className="h-4 w-4 text-gray-400" />
                      </div>
-                     <div className="flex items-center gap-1 bg-gray-50 p-1 rounded-lg border border-gray-100">
-                        <button className="p-2 bg-white rounded shadow-sm text-[#C9A96E]">
-                           <Grid className="h-4 w-4" />
-                        </button>
-                        <button className="p-2 text-gray-400 hover:text-gray-900 transition-colors">
-                           <List className="h-4 w-4" />
-                        </button>
-                     </div>
                   </div>
                </div>
 
                {/* Grid */}
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                  {templates.map((template) => (
-                     <div key={template.id} className="group">
-                        <Link href={`/templates/${template.id}`} className="block">
-                           <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 mb-4 relative">
-                              <img
-                                 src={template.image}
-                                 alt={template.title}
-                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                              />
-                              <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                                 <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-xl">
-                                    <Eye className="h-5 w-5" />
+                  {filteredTemplates.length > 0 ? (
+                     filteredTemplates.map((template) => (
+                        <div key={template.id} className="group">
+                           <Link href={`/templates/${template.id}`} className="block">
+                              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 mb-4 relative">
+                                 <img
+                                    src={template.image}
+                                    alt={template.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                 />
+                                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                    <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-xl">
+                                       <Eye className="h-5 w-5" />
+                                    </div>
+                                 </div>
+                              </div>
+                           </Link>
+
+                           {/* Card Info */}
+                           <div className="px-1">
+                              <Link href={`/templates/${template.id}`}>
+                                 <h4 className="text-[15px] font-bold text-gray-900 mb-3 group-hover:text-[#C9A96E] transition-colors">{template.title}</h4>
+                              </Link>
+                              <div className="flex items-center justify-between">
+                                 <div className="flex items-center gap-2">
+                                    {template.tags.map(tag => (
+                                       <span key={tag} className="px-3 py-1 bg-[#FBF9F7] border border-[#E4E0D9] text-gray-600 text-[10px] font-bold rounded-md uppercase tracking-wider">
+                                          {tag}
+                                       </span>
+                                    ))}
                                  </div>
                               </div>
                            </div>
-                        </Link>
-
-                        {/* Card Info */}
-                        <div className="px-1">
-                           <Link href={`/templates/${template.id}`}>
-                              <h4 className="text-[15px] font-bold text-gray-900 mb-3 group-hover:text-[#C9A96E] transition-colors">{template.title}</h4>
-                           </Link>
-                           <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                 {template.tags.map(tag => (
-                                    <span key={tag} className="px-3 py-1 bg-[#FBF9F7] border border-[#E4E0D9] text-gray-600 text-[10px] font-bold rounded-md uppercase tracking-wider">
-                                       {tag}
-                                    </span>
-                                 ))}
-                              </div>
-                           </div>
                         </div>
+                     ))
+                  ) : (
+                     <div className="col-span-full py-20 text-center">
+                        <div className="h-16 w-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                           <Search className="h-8 w-8" />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">No templates found</h3>
+                        <p className="text-gray-500 mt-2">Try adjusting your filters or search query.</p>
+                        <button 
+                           onClick={resetFilters}
+                           className="mt-6 text-[#C9A96E] font-bold hover:underline"
+                        >
+                           Clear all filters
+                        </button>
                      </div>
-                  ))}
-               </div>
-
-               {/* Pagination */}
-               <div className="flex justify-center items-center gap-2">
-                  <button className="h-10 w-10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors">
-                     <ChevronLeft className="h-4 w-4" />
-                  </button>
-                  <button className="h-10 w-10 rounded-lg bg-[#C9A96E] text-white font-bold text-sm shadow-md">1</button>
-                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">2</button>
-                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">3</button>
-                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">4</button>
-                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">5</button>
-                  <span className="text-gray-400 px-2">...</span>
-                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">15</button>
-                  <button className="h-10 w-10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors">
-                     <ChevronRight className="h-4 w-4" />
-                  </button>
+                  )}
                </div>
 
             </main>
@@ -292,7 +325,7 @@ export default function TemplatesPage() {
                   </div>
                </div>
                <button className="px-8 py-4 bg-[#C9A96E] text-white rounded-xl text-[12px] font-bold flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-lg shadow-[#C9A96E]/20 whitespace-nowrap">
-                  Generate with AI <Sparkles className="h-4 w-4" />
+                  Generate with AI <Search className="h-4 w-4" />
                </button>
             </div>
          </section>
