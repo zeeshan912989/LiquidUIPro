@@ -64,15 +64,11 @@ export default function LandingPage() {
           </div>
 
           <div className="hidden lg:flex items-center gap-8">
-            {['Features', 'Components', 'Templates', 'Pricing', 'Support'].map((item) => (
-              <Link 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
+            <Link href="/features" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Features</Link>
+            <Link href="/components/cart" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Components</Link>
+            <Link href="/templates" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Templates</Link>
+            <Link href="/pricing" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Pricing</Link>
+            <Link href="/support" className="text-[10px] font-black uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">Support</Link>
             <div className="h-4 w-px bg-[#E4E0D9]" />
             <Link href="/components/cart" className="px-6 py-2.5 bg-[#C9A96E] text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">
                Get Started
