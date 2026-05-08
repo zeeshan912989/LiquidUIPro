@@ -72,7 +72,7 @@ export default function Template() {
   return (
     <div className="h-screen flex flex-col bg-[#0F0F0F] overflow-hidden">
       {/* Top Controller Bar */}
-      <div className="h-16 bg-black border-b border-white/5 flex items-center justify-between px-6 shrink-0 z-[100]">
+      <div className="h-16 bg-black border-b border-white/5 flex items-center justify-between px-6 shrink-0 z-[500] relative">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => router.push('/templates')}
@@ -150,14 +150,14 @@ export default function Template() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowCode(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200]"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[550]"
             />
             <motion.div 
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-[#0F0F0F] border-l border-white/10 z-[210] shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-[#0F0F0F] border-l border-white/10 z-[600] shadow-2xl flex flex-col"
             >
               <div className="p-6 border-b border-white/10 flex items-center justify-between">
                 <div>
