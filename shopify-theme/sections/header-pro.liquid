@@ -1,97 +1,103 @@
 {% comment %}
-  LiquidUI Pro - Premium Header with Mobile Drawer
+  LiquidUI Pro - Luxury Minimalist Header
 {% endcomment %}
 
-<header class="header-pro header-{{ section.id }}" data-section-id="{{ section.id }}">
-  <div class="container">
-    <div class="header-main">
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle md:hidden" id="MobileToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <!-- Logo -->
-      <div class="header-logo">
-        <a href="/">{{ section.settings.logo_text | default: shop.name }}</a>
-      </div>
-
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav hidden md:flex">
-        {% for link in linklists[section.settings.menu].links %}
-          <div class="nav-item">
-            <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
-          </div>
-        {% endfor %}
-      </nav>
-
-      <!-- Icons -->
-      <div class="header-icons">
-        <button class="icon-btn search-trigger">{% render 'icon-search' %}</button>
-        <a href="/cart" class="icon-btn cart-btn">
-          {% render 'icon-bag' %}
-          <span class="cart-count">0</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="MobileDrawer">
-    <div class="drawer-header">
-       <button id="CloseDrawer">Close</button>
-    </div>
-    <nav class="mobile-nav">
-      {% for link in linklists[section.settings.menu].links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
+<header class="header-pro luxury-header" data-section-id="{{ section.id }}">
+  <div class="header-container">
+    <!-- Left: Navigation -->
+    <nav class="header-nav left-nav hidden lg:flex">
+      {% for link in linklists[section.settings.menu].links limit: 3 %}
+        <a href="{{ link.url }}" class="nav-item">{{ link.title }}</a>
       {% endfor %}
     </nav>
+
+    <!-- Center: Logo -->
+    <div class="header-logo">
+      <a href="/">
+        {% if section.settings.logo != blank %}
+          {{ section.settings.logo | image_url: width: 200 | image_tag: class: 'logo-img' }}
+        {% else %}
+          <span class="logo-text">{{ section.settings.logo_text | default: 'ELYSÉ PRO' }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <!-- Right: Navigation & Icons -->
+    <div class="header-right">
+      <nav class="header-nav right-nav hidden lg:flex">
+        {% for link in linklists[section.settings.menu].links offset: 3 %}
+          <a href="{{ link.url }}" class="nav-item">{{ link.title }}</a>
+        {% endfor %}
+      </nav>
+      <div class="header-icons">
+        <button class="icon-trigger search-btn">{% render 'icon-search' %}</button>
+        <a href="/cart" class="icon-trigger cart-btn">
+          {% render 'icon-bag' %}
+          <span class="cart-dot"></span>
+        </a>
+        <button class="mobile-menu-trigger lg:hidden" id="MenuOpen">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 
 {% schema %}
 {
-  "name": "Header Pro",
+  "name": "Luxury Header",
   "settings": [
-    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "ELYSÉ" },
+    { "type": "image_picker", "id": "logo", "label": "Logo Image" },
+    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "ELYSÉ PRO" },
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
   ]
 }
 {% endschema %}
 
 <style>
-.header-pro {
+.luxury-header {
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 1000;
-  background: white;
-  border-bottom: 1px solid #F3EFE9;
-  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 15px 0;
   font-family: 'Outfit', sans-serif;
 }
-.container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-.header-main { display: flex; justify-content: space-between; align-items: center; }
-.header-logo a { font-size: 24px; font-weight: 900; letter-spacing: 0.2em; text-decoration: none; color: #1A1A1A; }
-.desktop-nav { gap: 40px; }
-.nav-link { text-decoration: none; color: #1A1A1A; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; transition: opacity 0.3s; }
-.nav-link:hover { opacity: 1; color: #C9A96E; }
-.header-icons { display: flex; gap: 20px; align-items: center; }
-.icon-btn { background: none; border: none; cursor: pointer; color: #1A1A1A; position: relative; }
-.cart-count { position: absolute; -top: 8px; -right: 8px; background: #C9A96E; color: white; font-size: 8px; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+.header-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-nav { gap: 35px; }
+.nav-item {
+  text-decoration: none;
+  color: #1A1A1A;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.nav-item:hover { opacity: 1; color: #C9A96E; }
 
-.mobile-drawer { position: fixed; inset: 0; background: white; transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 2000; }
-.mobile-drawer.active { transform: translateX(0); }
+.header-logo { flex: 1; text-align: center; }
+.logo-text { font-size: 26px; font-weight: 900; letter-spacing: 0.3em; color: #1A1A1A; text-decoration: none; }
+.logo-img { height: 40px; width: auto; }
 
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
+.header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 40px; }
+.header-icons { display: flex; align-items: center; gap: 20px; }
+.icon-trigger { background: none; border: none; cursor: pointer; color: #1A1A1A; position: relative; padding: 5px; }
+.cart-dot { position: absolute; top: 4px; right: 4px; width: 6px; height: 6px; background: #C9A96E; border-radius: 50%; }
+
+@media (max-width: 1024px) {
+  .header-container { padding: 0 20px; }
+  .header-logo { text-align: left; }
 }
 </style>
-
-<script>
-document.getElementById('MobileToggle')?.addEventListener('click', () => {
-  document.getElementById('MobileDrawer')?.classList.add('active');
-});
-document.getElementById('CloseDrawer')?.addEventListener('click', () => {
-  document.getElementById('MobileDrawer')?.classList.remove('active');
-});
-</script>
