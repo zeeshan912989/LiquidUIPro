@@ -58,7 +58,7 @@ export default function LandingPage() {
 
           {/* Nav Links */}
           <div className="hidden lg:flex items-center gap-12">
-            {['Library', 'Templates', 'Pricing', 'Support'].map((item) => (
+            {['Features', 'Templates', 'Pricing', 'Support'].map((item) => (
               <Link key={item} href={`/${item.toLowerCase()}`} className="text-sm font-semibold text-[#555] hover:text-black transition-colors">
                 {item}
               </Link>

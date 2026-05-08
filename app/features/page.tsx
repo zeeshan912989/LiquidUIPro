@@ -76,6 +76,34 @@ export default function FeaturesPage() {
             </motion.div>
           ))}
         </div>
+        {/* Featured Artifacts Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-40 mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Featured <span className="text-[#C9A96E]">Artifacts.</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {[
+              { name: 'Elite Navigation', category: 'Headers', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
+              { name: 'Dynamic Hero', category: 'Sections', img: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800&auto=format&fit=crop' },
+              { name: 'Conversion Grid', category: 'Products', img: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop' },
+              { name: 'Slide-out Engine', category: 'Carts', img: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=800&auto=format&fit=crop' },
+            ].map((item, i) => (
+              <div key={i} className="group relative aspect-[16/10] bg-white border border-[#E4E0D9] rounded-[3rem] overflow-hidden hover:border-[#C9A96E] transition-all shadow-sm">
+                <img src={item.img} alt={item.name} className="h-full w-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12">
+                   <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#C9A96E] mb-2">{item.category}</span>
+                   <h4 className="text-2xl font-bold text-white">{item.name}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-16 text-center">
+            <Link href="/components/cart" className="px-12 py-5 bg-[#0A0A0A] text-white rounded-xl text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#C9A96E] transition-all">Explore Entire Repository</Link>
+          </div>
+        </motion.div>
       </main>
 
       <div className="py-8 bg-white border-t border-[#E4E0D9] text-center mt-20">
