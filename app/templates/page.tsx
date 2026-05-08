@@ -73,7 +73,28 @@ export default function TemplatesPage() {
    }
 
    return (
-      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-24">
+      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-16">
+         {/* Sub Header / Breadcrumb Bar */}
+         <div className="bg-white border-b border-[#F3EFE9] sticky top-16 z-40 px-6 md:px-12 py-4">
+            <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+               <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                  <Link href="/" className="hover:text-[#C9A96E] transition-colors">Home</Link>
+                  <span>/</span>
+                  <span className="text-gray-900">Template Library</span>
+               </div>
+               <div className="flex items-center gap-6">
+                  <div className="hidden sm:flex items-center gap-6">
+                     {['Trending', 'Bestsellers', 'New Arrivals'].map(item => (
+                        <a key={item} href="#" className="text-[11px] font-bold text-gray-500 hover:text-[#C9A96E] transition-colors uppercase tracking-wider">{item}</a>
+                     ))}
+                  </div>
+                  <div className="h-4 w-[1px] bg-gray-200 hidden sm:block" />
+                  <button className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-[#C9A96E]">
+                     <Sparkles className="h-3.5 w-3.5" /> Featured
+                  </button>
+               </div>
+            </div>
+         </div>
 
          {/* Hero Section */}
          <section className="bg-[#FCFAF8] py-20 border-b border-[#F3EFE9] overflow-hidden">
