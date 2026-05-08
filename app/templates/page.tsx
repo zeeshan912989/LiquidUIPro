@@ -32,8 +32,8 @@ const industries = [
 ];
 
 const templates = [
-   { id: 1, title: 'Fashion Minimal Hero', image: '/assets/images/hero1.jpeg', tags: ['Hero', 'Modern'] },
-   { id: 2, title: 'Luxury Product Hero', image: '/assets/images/hero2.jpeg', tags: ['Hero', 'Luxury'] },
+   { id: 'fashion-luxury', title: 'Fashion Luxury Template', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Luxury', 'Fashion'] },
+   { id: 'tech-minimal', title: 'Tech Minimal Template', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Modern', 'Tech'] },
    { id: 3, title: 'Beauty Hero Split', image: '/assets/images/hero-penthouse.jpg', tags: ['Hero', 'Minimal'] },
    { id: 4, title: 'Product Grid - Clean', image: '/assets/images/hero1.jpeg', tags: ['Product', 'Modern'] },
    { id: 5, title: 'Product Slider - Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Product', 'Minimal'] },
@@ -48,36 +48,10 @@ const templates = [
 
 export default function TemplatesPage() {
    return (
-      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white">
-
-         {/* Top Navbar */}
-         <nav className="w-full bg-white border-b border-[#F3EFE9] px-6 py-4 md:px-12 relative z-50">
-            <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-               <Link href="/" className="flex items-center gap-2">
-                  <span className="text-xl font-black tracking-widest uppercase font-outfit text-[#1A1A1A]">
-                     LIQUIDUI<span className="text-[#C9A96E]">PRO</span>
-                  </span>
-               </Link>
-               <div className="hidden md:flex items-center gap-8">
-                  <Link href="/library" className="text-[13px] font-bold text-[#C9A96E]">Library</Link>
-                  <Link href="/templates" className="text-[13px] font-bold text-gray-900">Templates</Link>
-                  <Link href="/pricing" className="text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-colors">Pricing</Link>
-                  <Link href="/support" className="text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-colors">Support</Link>
-               </div>
-               <div className="flex items-center gap-4">
-                  <Link href="/components/cart" className="px-6 py-2.5 bg-[#C9A96E] text-white rounded-md text-[11px] font-bold transition-all shadow-sm">
-                     Get Started
-                  </Link>
-                  <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="px-6 py-2.5 bg-white border border-[#E4E0D9] rounded-md text-[11px] font-bold flex items-center gap-2 hover:bg-gray-50 transition-all">
-                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-                     GitHub
-                  </Link>
-               </div>
-            </div>
-         </nav>
+      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-24">
 
          {/* Hero Section */}
-         <section className="bg-[#FCFAF8] pt-20 pb-24 border-b border-[#F3EFE9] overflow-hidden">
+         <section className="bg-[#FCFAF8] py-20 border-b border-[#F3EFE9] overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16 relative">
                <div className="lg:w-1/2 relative z-10">
                   <span className="text-[10px] font-black text-[#C9A96E] uppercase tracking-widest mb-6 block">Template Library</span>
@@ -85,7 +59,7 @@ export default function TemplatesPage() {
                      Beautiful Shopify <br />
                      <span className="text-[#C9A96E]">Templates</span> & Sections
                   </h1>
-                  <p className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed">
+                  <p className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed font-medium">
                      Explore our collection of premium templates and sections built for speed, conversion, and stunning design.
                   </p>
 
@@ -217,21 +191,6 @@ export default function TemplatesPage() {
                      </ul>
                   </div>
 
-                  {/* Color Mode */}
-                  <div className="mb-8 border-t border-gray-100 pt-6">
-                     <div className="flex items-center justify-between mb-4 cursor-pointer">
-                        <span className="text-[13px] font-bold text-gray-900">Color Mode</span>
-                     </div>
-                     <div className="flex items-center gap-2">
-                        <div className="h-6 w-6 rounded-full bg-white border border-gray-200 cursor-pointer ring-2 ring-offset-1 ring-[#C9A96E]" />
-                        <div className="h-6 w-6 rounded-full bg-black cursor-pointer" />
-                        <div className="h-6 w-6 rounded-full bg-[#C9A96E] cursor-pointer" />
-                        <div className="h-6 w-6 rounded-full bg-[#3B82F6] cursor-pointer" />
-                        <div className="h-6 w-6 rounded-full bg-[#10B981] cursor-pointer" />
-                        <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-500 cursor-pointer" />
-                     </div>
-                  </div>
-
                   {/* Reset Button */}
                   <button className="w-full py-3 bg-white border border-gray-200 rounded-lg text-[12px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-gray-600">
                      <RefreshCw className="h-3 w-3" /> Reset Filters
@@ -267,24 +226,26 @@ export default function TemplatesPage() {
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                   {templates.map((template) => (
                      <div key={template.id} className="group">
-                        {/* Image Container */}
-                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 mb-4 relative">
-                           <img
-                              src={template.image}
-                              alt={template.title}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                           />
-                           {/* Hover Overlay */}
-                           <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                              <button className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-xl">
-                                 <Eye className="h-5 w-5" />
-                              </button>
+                        <Link href={`/templates/${template.id}`} className="block">
+                           <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 mb-4 relative">
+                              <img
+                                 src={template.image}
+                                 alt={template.title}
+                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                 <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-xl">
+                                    <Eye className="h-5 w-5" />
+                                 </div>
+                              </div>
                            </div>
-                        </div>
+                        </Link>
 
                         {/* Card Info */}
                         <div className="px-1">
-                           <h4 className="text-[15px] font-bold text-gray-900 mb-3">{template.title}</h4>
+                           <Link href={`/templates/${template.id}`}>
+                              <h4 className="text-[15px] font-bold text-gray-900 mb-3 group-hover:text-[#C9A96E] transition-colors">{template.title}</h4>
+                           </Link>
                            <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
                                  {template.tags.map(tag => (
@@ -292,14 +253,6 @@ export default function TemplatesPage() {
                                        {tag}
                                     </span>
                                  ))}
-                              </div>
-                              <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                                 <button className="p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
-                                    <Eye className="h-3.5 w-3.5" />
-                                 </button>
-                                 <button className="p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
-                                    <Copy className="h-3.5 w-3.5" />
-                                 </button>
                               </div>
                            </div>
                         </div>
