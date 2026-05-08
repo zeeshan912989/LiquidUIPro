@@ -1,0 +1,149 @@
+{% comment %}
+  LiquidUI Pro - Fashion Luxury Section
+  This section implements the high-fidelity Elysé Luxury Hero and Featured Products.
+{% endcomment %}
+
+<div class="fashion-luxury-section" data-section-id="{{ section.id }}">
+  <!-- Header -->
+  <header class="luxury-header" id="header-{{ section.id }}">
+    <div class="container">
+      <div class="logo">
+        <a href="/">{{ section.settings.logo_text | default: 'ELYSÉ' }}</a>
+      </div>
+      <nav class="nav-links">
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </nav>
+      <div class="icons">
+        <button class="icon-search">{% render 'icon-search' %}</button>
+        <button class="icon-cart">{% render 'icon-bag' %}</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="luxury-hero">
+    <div class="hero-image">
+      {% if section.settings.hero_image %}
+        {{ section.settings.hero_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Hero">
+      {% endif %}
+    </div>
+    <div class="hero-content">
+      <span class="sub-title">{{ section.settings.sub_title }}</span>
+      <h1>{{ section.settings.title }}</h1>
+      <p>{{ section.settings.text }}</p>
+      <div class="buttons">
+        <a href="{{ section.settings.button_url }}" class="btn-primary">{{ section.settings.button_text }}</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Fashion Luxury",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "ELYSÉ"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title",
+      "default": "L'Automne 2026"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Define Your Essence"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "A curated collection of timeless elegance."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fashion Luxury"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.fashion-luxury-section {
+  --color-gold: #C9A96E;
+  --font-heading: 'Outfit', sans-serif;
+  position: relative;
+}
+.luxury-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 24px 48px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.luxury-hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 48px;
+  color: white;
+  max-width: 800px;
+}
+.hero-content h1 {
+  font-size: 80px;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin: 20px 0;
+}
+</style>

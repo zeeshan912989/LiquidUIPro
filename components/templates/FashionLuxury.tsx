@@ -27,7 +27,7 @@ export default function FashionLuxuryTemplate() {
       {/* Header */}
       <header 
         className={cn(
-          "fixed top-0 left-0 w-full z-[200] transition-all duration-500 px-6 py-6 md:px-12",
+          "sticky top-0 left-0 w-full z-[200] transition-all duration-500 px-6 py-6 md:px-12",
           isScrolled ? "bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-gray-100" : "bg-transparent"
         )}
       >

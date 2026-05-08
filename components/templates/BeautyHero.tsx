@@ -9,7 +9,7 @@ export default function BeautyHeroTemplate() {
   return (
     <div className="min-h-screen bg-white font-inter">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-50 px-6 py-4">
+      <nav className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-50 px-6 py-4">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <div className="text-xl font-bold tracking-[0.2em] text-gray-900 font-outfit uppercase">GLOWCARE</div>
           <div className="hidden md:flex items-center gap-8">
