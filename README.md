@@ -2,7 +2,7 @@
 
 LiquidUI Pro is a premium, production-ready Shopify component library built with **Next.js 16**, **React 19**, and **Tailwind CSS**. It provides over 100 high-fidelity Liquid components designed to help Shopify developers and store owners build stunning storefronts in minutes.
 
-![LiquidUI Pro Preview](liquidui_pro_preview_1778224438100.png)
+![LiquidUI Pro Preview](preview.png)
 
 ## ✨ Features
 
