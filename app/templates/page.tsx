@@ -54,9 +54,9 @@ export default function TemplatesPage() {
 
    const filteredTemplates = useMemo(() => {
       return templates.filter(template => {
-         const matchesSearch = template.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                              template.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-         
+         const matchesSearch = template.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            template.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+
          const matchesCategory = activeCategory === 'all' || template.tags.includes(activeCategory)
          const matchesStyle = !activeStyle || template.tags.includes(activeStyle)
          const matchesIndustry = !activeIndustry || template.tags.includes(activeIndustry)
@@ -73,28 +73,7 @@ export default function TemplatesPage() {
    }
 
    return (
-      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-16">
-         {/* Sub Header / Breadcrumb Bar */}
-         <div className="bg-white border-b border-[#F3EFE9] sticky top-16 z-40 px-6 md:px-12 py-4">
-            <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-               <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400">
-                  <Link href="/" className="hover:text-[#C9A96E] transition-colors">Home</Link>
-                  <span>/</span>
-                  <span className="text-gray-900">Template Library</span>
-               </div>
-               <div className="flex items-center gap-6">
-                  <div className="hidden sm:flex items-center gap-6">
-                     {['Trending', 'Bestsellers', 'New Arrivals'].map(item => (
-                        <a key={item} href="#" className="text-[11px] font-bold text-gray-500 hover:text-[#C9A96E] transition-colors uppercase tracking-wider">{item}</a>
-                     ))}
-                  </div>
-                  <div className="h-4 w-[1px] bg-gray-200 hidden sm:block" />
-                  <button className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-[#C9A96E]">
-                     <Sparkles className="h-3.5 w-3.5" /> Featured
-                  </button>
-               </div>
-            </div>
-         </div>
+      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white pt-24">
 
          {/* Hero Section */}
          <section className="bg-[#FCFAF8] py-20 border-b border-[#F3EFE9] overflow-hidden">
@@ -125,8 +104,8 @@ export default function TemplatesPage() {
                   <div className="flex items-center gap-3 flex-wrap">
                      <span className="text-[11px] font-bold text-gray-900 mr-2">Popular:</span>
                      {['Hero', 'Product', 'Collection', 'Header', 'Footer', 'Cart'].map(tag => (
-                        <button 
-                           key={tag} 
+                        <button
+                           key={tag}
                            onClick={() => setSearchQuery(tag)}
                            className={`px-4 py-1.5 border rounded-full text-[10px] font-bold transition-colors shadow-sm ${searchQuery === tag ? 'bg-[#C9A96E] text-white border-[#C9A96E]' : 'bg-white border-[#E4E0D9] text-gray-500 hover:border-[#C9A96E] hover:text-[#C9A96E]'}`}
                         >
@@ -176,7 +155,7 @@ export default function TemplatesPage() {
                   <ul className="space-y-1.5">
                      {browseLinks.map((link, i) => (
                         <li key={i}>
-                           <button 
+                           <button
                               onClick={() => setActiveCategory(link.slug)}
                               className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-[13px] font-bold transition-colors ${activeCategory === link.slug ? 'bg-[#C9A96E] text-white shadow-md' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}
                            >
@@ -206,8 +185,8 @@ export default function TemplatesPage() {
                      </div>
                      <ul className="space-y-3">
                         {styles.map((style, i) => (
-                           <li 
-                              key={i} 
+                           <li
+                              key={i}
                               onClick={() => setActiveStyle(activeStyle === style.name ? null : style.name)}
                               className="flex items-center justify-between group cursor-pointer"
                            >
@@ -231,8 +210,8 @@ export default function TemplatesPage() {
                      </div>
                      <ul className="space-y-3">
                         {industries.map((ind, i) => (
-                           <li 
-                              key={i} 
+                           <li
+                              key={i}
                               onClick={() => setActiveIndustry(activeIndustry === ind.name ? null : ind.name)}
                               className="flex items-center justify-between group cursor-pointer"
                            >
@@ -249,7 +228,7 @@ export default function TemplatesPage() {
                   </div>
 
                   {/* Reset Button */}
-                  <button 
+                  <button
                      onClick={resetFilters}
                      className="w-full py-3 bg-white border border-gray-200 rounded-lg text-[12px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-gray-600"
                   >
@@ -320,7 +299,7 @@ export default function TemplatesPage() {
                         </div>
                         <h3 className="text-lg font-bold text-gray-900">No templates found</h3>
                         <p className="text-gray-500 mt-2">Try adjusting your filters or search query.</p>
-                        <button 
+                        <button
                            onClick={resetFilters}
                            className="mt-6 text-[#C9A96E] font-bold hover:underline"
                         >

@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "fashion-luxury",
+      "settings": {
+        "title": "Welcome to LiquidUI Pro"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
