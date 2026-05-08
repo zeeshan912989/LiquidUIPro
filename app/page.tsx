@@ -46,13 +46,17 @@ export default function LandingPage() {
         scrolled ? "bg-white/90 backdrop-blur-md border-b border-[#E4E0D9] py-3" : "bg-transparent py-6"
       )}>
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex flex-col items-start">
-            <span className="text-2xl font-black tracking-tighter uppercase leading-none font-outfit text-[#C9A96E]">LIQUIDUI</span>
-            <div className="flex items-center gap-1 w-full">
-              <div className="h-[1px] flex-1 bg-[#E4E0D9]" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-[#C9A96E]">PRO</span>
-              <div className="h-[1px] flex-1 bg-[#E4E0D9]" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="h-10 w-10 bg-[#C9A96E] rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform overflow-hidden p-2">
+               <img src="/icon.svg" alt="logo" className="h-full w-full object-contain brightness-0 invert" />
+            </div>
+            <div className="flex flex-col -space-y-1">
+              <span className="text-xl font-black tracking-tighter uppercase leading-none font-outfit text-[#C9A96E]">LIQUIDUI</span>
+              <div className="flex items-center gap-1 w-full">
+                <div className="h-[0.5px] flex-1 bg-[#E4E0D9]" />
+                <span className="text-[8px] font-black tracking-[0.4em] uppercase text-[#C9A96E]/60">PRO</span>
+                <div className="h-[0.5px] flex-1 bg-[#E4E0D9]" />
+              </div>
             </div>
           </Link>
 
