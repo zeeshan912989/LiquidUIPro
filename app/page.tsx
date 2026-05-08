@@ -23,7 +23,8 @@ import {
   ExternalLink,
   Plus,
   Pencil,
-  Code
+  Code,
+  MessageCircle
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -127,36 +128,75 @@ export default function LandingPage() {
 
           {/* Right Image/Mockup */}
           <div className="lg:w-1/2 relative">
-             <div className="relative rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-[#E4E0D9] bg-white p-2">
+             <div className="relative rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.08)] border border-[#E4E0D9] bg-white p-1 md:p-2">
                 {/* Browser Header */}
-                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-gray-100">
+                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-gray-100 bg-white">
                    <div className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]" />
                    <div className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
                    <div className="h-2.5 w-2.5 rounded-full bg-[#27C93F]" />
                 </div>
                 {/* Mockup Content */}
-                <div className="bg-[#FBF9F7] aspect-[4/3] flex flex-col">
-                   <div className="h-12 border-b border-gray-100 bg-white flex items-center justify-between px-6">
+                <div className="bg-white aspect-[4/3] flex flex-col overflow-hidden">
+                   {/* Mockup Nav */}
+                   <div className="h-10 border-b border-gray-100 flex items-center justify-between px-4">
                       <div className="flex items-center gap-2">
-                         <div className="h-6 w-12 bg-gray-100 rounded" />
+                         <div className="h-4 w-4 bg-[#C9A96E] rounded-md" />
+                         <span className="text-[8px] font-black uppercase tracking-tighter text-[#C9A96E]">LIQUIDUI PRO</span>
                       </div>
-                      <div className="flex gap-4">
-                         <div className="h-6 w-12 bg-gray-50 rounded" />
-                         <div className="h-6 w-12 bg-[#C9A96E]/10 rounded" />
+                      <div className="flex gap-2">
+                         <div className="h-5 w-10 bg-gray-50 rounded border border-gray-100" />
+                         <div className="h-5 w-10 bg-[#C9A96E] rounded border border-[#C9A96E]" />
                       </div>
                    </div>
+                   
                    <div className="flex-1 flex overflow-hidden">
-                      <div className="w-40 border-r border-gray-100 bg-white p-4 space-y-4">
-                         <div className="h-4 w-20 bg-gray-100 rounded" />
+                      {/* Mockup Sidebar */}
+                      <div className="w-32 md:w-40 border-r border-gray-100 p-4 space-y-4 hidden md:block">
+                         <div className="flex items-center justify-between">
+                            <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Components</span>
+                            <ChevronRight className="h-2 w-2 text-gray-400" />
+                         </div>
                          <div className="space-y-2">
-                            {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-3 w-24 bg-gray-50 rounded" />)}
+                            {['Header', 'Hero Sections', 'Product Sections', 'Collections', 'Features', 'Testimonials', 'FAQ', 'Footers'].map((item, idx) => (
+                               <div key={item} className={cn(
+                                  "flex items-center justify-between p-1.5 rounded transition-colors",
+                                  idx === 3 ? "bg-[#FBF9F7] text-[#C9A96E]" : "hover:bg-gray-50"
+                               )}>
+                                  <span className="text-[7px] font-bold text-gray-500">{item}</span>
+                                  <ChevronRight className="h-2 w-2 text-gray-300" />
+                               </div>
+                            ))}
                          </div>
                       </div>
-                      <div className="flex-1 p-8">
-                         <div className="h-full w-full bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col">
-                            <div className="h-32 w-full bg-gray-50 rounded-lg mb-8" />
-                            <div className="grid grid-cols-4 gap-4">
-                               {[1, 2, 3, 4].map(i => <div key={i} className="aspect-square bg-gray-50 rounded-lg" />)}
+
+                      {/* Mockup Canvas */}
+                      <div className="flex-1 bg-[#FBF9F7] p-4 md:p-6 overflow-hidden">
+                         <div className="h-full w-full bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col overflow-hidden">
+                            {/* Banner Inside Mockup */}
+                            <div className="relative h-32 md:h-48 bg-[#F3EFE9] flex items-center px-6 md:px-10 overflow-hidden">
+                               <div className="relative z-10 max-w-[140px] md:max-w-[200px]">
+                                  <h4 className="text-sm md:text-lg font-black leading-tight mb-2 font-outfit">NEW <br /> COLLECTION</h4>
+                                  <p className="text-[6px] md:text-[8px] text-gray-500 mb-3 leading-relaxed">Modern design. Premium quality. Made for your store.</p>
+                                  <button className="px-3 py-1.5 bg-[#C9A96E] text-white text-[6px] md:text-[8px] font-bold rounded">Shop Now</button>
+                               </div>
+                               {/* Abstract Vase/Product Placeholder */}
+                               <div className="absolute right-0 bottom-0 w-24 md:w-40 h-full opacity-40 flex items-end justify-center">
+                                  <div className="w-16 md:w-24 h-32 md:h-40 bg-[#C9A96E]/20 rounded-t-full border border-[#C9A96E]/30" />
+                               </div>
+                            </div>
+                            {/* Bottom Grid Inside Mockup */}
+                            <div className="flex-1 p-3 md:p-5 grid grid-cols-4 gap-2 md:gap-4">
+                               {[
+                                 { name: 'Product Grid', icon: Layout },
+                                 { name: 'Banner', icon: Monitor },
+                                 { name: 'Collection List', icon: Layers },
+                                 { name: 'Testimonials', icon: MessageCircle }
+                               ].map((item, i) => (
+                                 <div key={i} className="bg-white border border-gray-50 rounded-lg p-2 md:p-3 flex flex-col items-center justify-center text-center shadow-[0_4px_10px_rgba(0,0,0,0.02)]">
+                                    <item.icon className="h-3 w-3 md:h-4 md:w-4 text-[#C9A96E] mb-1.5" />
+                                    <span className="text-[5px] md:text-[7px] font-bold text-gray-500 whitespace-nowrap">{item.name}</span>
+                                 </div>
+                               ))}
                             </div>
                          </div>
                       </div>
