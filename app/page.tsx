@@ -268,43 +268,74 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-24 px-6 md:px-12 bg-white">
+      <footer className="py-32 px-6 md:px-12 bg-white border-t border-[#E4E0D9]">
          <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20">
-               <div className="col-span-1 md:col-span-1">
-                  <Link href="/" className="flex items-center gap-3 mb-8">
-                     <div className="h-10 w-10 bg-[#C9A96E] text-white rounded-xl flex items-center justify-center">
-                        <span className="text-xl font-black italic">L</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-24">
+               <div className="lg:col-span-4">
+                  <Link href="/" className="flex items-center gap-3 mb-8 group">
+                     <div className="h-10 w-10 bg-[#C9A96E] text-white rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
                      </div>
-                     <span className="text-xl font-black uppercase tracking-tighter">Liquid UI <span className="text-[#C9A96E]">Pro</span></span>
+                     <div className="flex flex-col -space-y-1">
+                        <span className="text-xl font-black uppercase tracking-tighter">Liquid UI <span className="text-[#C9A96E]">Pro</span></span>
+                        <span className="text-[8px] font-black uppercase tracking-[0.3em] text-[#C9A96E]/60 pl-0.5">Created by SHAH</span>
+                     </div>
                   </Link>
-                  <p className="text-sm text-[#7A7570] leading-relaxed font-medium">Premium Shopify component library built for speed and conversion.</p>
+                  <p className="text-sm text-[#7A7570] leading-relaxed font-medium max-w-sm mb-10">
+                     The definitive library for premium Shopify components. Built for high-performance storefronts and elite development workflows.
+                  </p>
+                  <div className="flex gap-4">
+                     {['Twitter', 'Instagram', 'Discord'].map((social) => (
+                       <Link key={social} href="#" className="h-10 w-10 bg-[#F9F7F4] border border-[#E4E0D9] rounded-xl flex items-center justify-center text-[#7A7570] hover:text-[#0A0A0A] hover:border-[#C9A96E] transition-all">
+                          <span className="text-[8px] font-black uppercase">{social[0]}</span>
+                       </Link>
+                     ))}
+                  </div>
                </div>
                
-               {['Explore', 'Utilities', 'Support', 'Legal'].map((group) => (
-                 <div key={group}>
-                    <h5 className="text-[10px] font-black uppercase tracking-widest text-[#C9A96E] mb-8">{group}</h5>
-                    <ul className="space-y-4">
-                       {[1, 2, 3].map((item) => (
-                         <li key={item}>
-                            <Link href="#" className="text-xs font-black text-[#7A7570] hover:text-[#0A0A0A] transition-colors uppercase tracking-widest">Link {item}</Link>
-                         </li>
-                       ))}
-                    </ul>
-                 </div>
-               ))}
+               <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-12">
+                  {[
+                    { title: 'Explorer', links: ['Carts', 'Footers', 'Headers', 'Banners'] },
+                    { title: 'Platform', links: ['Templates', 'Utilities', 'UI Kit', 'Liquid Docs'] },
+                    { title: 'Support', links: ['Documentation', 'License', 'Contact', 'Changelog'] }
+                  ].map((group) => (
+                    <div key={group.title}>
+                       <h5 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C9A96E] mb-8 italic">{group.title}</h5>
+                       <ul className="space-y-4">
+                          {group.links.map((link) => (
+                            <li key={link}>
+                               <Link href="#" className="text-[10px] font-bold uppercase tracking-widest text-[#7A7570] hover:text-black transition-colors">{link}</Link>
+                            </li>
+                          ))}
+                       </ul>
+                    </div>
+                  ))}
+               </div>
+
+               <div className="lg:col-span-3">
+                  <h5 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0A0A0A] mb-8 italic">Join the Inner Circle</h5>
+                  <p className="text-xs text-[#7A7570] font-medium mb-8 leading-relaxed">Get the latest Liquid artifacts and updates delivered to your inbox.</p>
+                  <div className="flex gap-2 p-1.5 bg-[#F9F7F4] border border-[#E4E0D9] rounded-2xl">
+                     <input type="text" placeholder="Email Address" className="bg-transparent border-none px-4 py-2 text-xs font-medium focus:outline-none flex-1" />
+                     <button className="px-6 py-3 bg-[#C9A96E] text-white rounded-xl text-[8px] font-black uppercase tracking-widest shadow-lg shadow-[#C9A96E]/20">Join</button>
+                  </div>
+               </div>
             </div>
             
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-[#E4E0D9]">
-               <p className="text-[10px] font-black uppercase tracking-widest text-[#7A7570]">LiquidUI Pro &copy; 2026</p>
-               <div className="flex gap-8">
-                  <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="text-[#7A7570] hover:text-[#0A0A0A] transition-colors flex items-center gap-2">
-                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                     </svg>
-                     <span className="text-[10px] font-black uppercase tracking-widest">GitHub</span>
-                  </Link>
+               <div className="flex items-center gap-4">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#7A7570]">LiquidUI Pro &copy; 2026</p>
+                  <div className="h-1 w-1 bg-[#E4E0D9] rounded-full" />
+                  <p className="text-[8px] font-black uppercase tracking-widest text-[#C9A96E]/60">Design & Engine by SHAH</p>
                </div>
+               <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="group flex items-center gap-3 px-6 py-3 bg-[#0A0A0A] text-white rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/10">
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  <span className="text-[10px] font-black uppercase tracking-widest">Star on GitHub</span>
+               </Link>
             </div>
          </div>
       </footer>
