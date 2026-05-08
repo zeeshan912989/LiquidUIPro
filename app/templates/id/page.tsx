@@ -8,7 +8,6 @@ import FashionLuxuryTemplate from '@/components/templates/FashionLuxury'
 import TechMinimalTemplate from '@/components/templates/TechMinimal'
 import BeautyHeroTemplate from '@/components/templates/BeautyHero'
 import ProductGridTemplate from '@/components/templates/ProductGrid'
-import { cn } from '@/lib/utils'
 
 const templateConfig: Record<string, { component: any, title: string }> = {
   'fashion-luxury': { component: FashionLuxuryTemplate, title: 'Fashion Luxury' },
@@ -30,6 +29,7 @@ export default function TemplateViewer() {
 
   useEffect(() => {
     if (showCode) {
+      // In a real app, we'd fetch the source file. Here we'll simulate or provide the core JSX.
       setCodeContent(`// Source code for ${template?.title || 'Template'}
 // File: components/templates/${id.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}.tsx
 
