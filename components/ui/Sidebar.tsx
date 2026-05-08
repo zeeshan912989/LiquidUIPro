@@ -28,7 +28,7 @@ const categories = [
   { name: 'Cart', icon: ShoppingCart, slug: 'cart' },
   { name: 'Checkout', icon: CreditCard, slug: 'checkout' },
   { name: 'Testimonials', icon: CheckCircle2, slug: 'testimonials' },
-  { name: 'Product', icon: Box, slug: 'product' },
+  { name: 'Products', icon: Box, slug: 'product' },
   { name: 'UI Elements', icon: Type, slug: 'ui-elements' },
 ]
 

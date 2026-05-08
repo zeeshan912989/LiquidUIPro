@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from 'react'
-import { Copy, Check, Eye, Code2 } from 'lucide-react'
+import Link from 'next/link'
+import { Copy, Check, Eye, Code2, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Component } from '@/lib/components'
 import { previewRegistry } from '@/lib/preview-registry'
+import CodeBlock from './CodeBlock'
 
 interface PreviewRendererProps {
   componentName: string
@@ -22,18 +24,16 @@ interface ComponentCardProps {
 
 export default function ComponentCard({ component }: ComponentCardProps) {
   const [view, setView] = useState<'preview' | 'code'>('preview')
-  const [copied, setCopied] = useState(false)
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(component.liquidCode)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
 
   return (
     <div className="group overflow-hidden rounded-xl border border-border-custom bg-bg-card shadow-sm transition-all hover:shadow-md">
       <div className="flex items-center justify-between border-b border-border-custom bg-bg/50 px-4 py-3">
-        <h3 className="font-semibold text-text-custom">{component.name}</h3>
+        <Link 
+          href={`/components/${component.category}/${component.id}`}
+          className="font-semibold text-text-custom hover:text-accent transition-colors"
+        >
+          {component.name}
+        </Link>
         <div className="flex items-center gap-2">
           <div className="flex rounded-lg border border-border-custom bg-bg-card p-1">
             <button
@@ -57,24 +57,19 @@ export default function ComponentCard({ component }: ComponentCardProps) {
               Liquid
             </button>
           </div>
-          <button
-            onClick={copyToClipboard}
-            className="rounded-lg border border-border-custom bg-bg-card p-2 text-text-muted transition-colors hover:text-accent"
-          >
-            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          </button>
         </div>
       </div>
 
       <div className="relative aspect-video w-full overflow-hidden bg-bg">
         {view === 'preview' ? (
-          <div className="h-full w-full overflow-auto bg-white">
-            <PreviewRenderer componentName={component.previewComponent} />
-          </div>
+          <iframe 
+            src={`/preview/${component.id}`}
+            className="h-full w-full border-0"
+            title={component.name}
+            loading="lazy"
+          />
         ) : (
-          <div className="h-full overflow-auto bg-[#0d1117] p-4 text-xs font-mono text-white">
-            <pre><code>{component.liquidCode}</code></pre>
-          </div>
+          <CodeBlock code={component.liquidCode} language="html" />
         )}
       </div>
 
@@ -86,9 +81,17 @@ export default function ComponentCard({ component }: ComponentCardProps) {
             </span>
           ))}
         </div>
-        <p className="text-sm text-text-muted line-clamp-2">
+        <p className="mb-4 text-sm text-text-muted line-clamp-2">
           {component.description}
         </p>
+
+        <Link 
+          href={`/components/${component.category}/${component.id}`}
+          className="flex w-full items-center justify-center gap-2 rounded-lg border border-border-custom bg-bg py-2 text-xs font-bold text-text-custom transition-colors hover:bg-accent hover:text-white"
+        >
+          View Full Page
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </div>
     </div>
   )

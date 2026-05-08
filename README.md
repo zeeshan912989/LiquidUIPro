@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LiquidUI Pro 🚀
 
-## Getting Started
+LiquidUI Pro is a premium, production-ready Shopify component library built with **Next.js 16**, **React 19**, and **Tailwind CSS**. It provides over 100 high-fidelity Liquid components designed to help Shopify developers and store owners build stunning storefronts in minutes.
 
-First, run the development server:
+![LiquidUI Pro Preview](liquidui_pro_preview_1778224438100.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **20+ Premium Cart Components**: From luxury fashion and minimalist designs to high-conversion bento grids and animated interactive drawers.
+- **20+ Professional Footer Layouts**: Clean, modern, and high-converting footer designs for various industries.
+- **Production Ready**: Fully responsive, optimized for performance, and compatible with the latest Shopify Liquid schema.
+- **Modern Tech Stack**: Built with Next.js 16 (Turbopack), React 19, and Tailwind CSS 4.
+- **Easy Integration**: Copy-paste Liquid code directly into your Shopify theme.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛍️ Component Categories
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🛒 Carts (20 New Components)
+- **Luxury Fashion**: High-end aesthetic for premium brands.
+- **Bento Grid**: Modern, modular layout for high engagement.
+- **Glassmorphism**: Sleek, futuristic design with translucent elements.
+- **Animated Interactive**: Real-time feedback and smooth transitions.
+- **Advanced Conversion**: Optimized for maximum AOV and trust.
+- **Eco Organic**: Natural, earthy tones for sustainable brands.
+- **Subscription Focus**: Optimized for recurring revenue models.
 
-## Learn More
+### 👣 Footers (20 Components)
+- **SaaS Modern**: Clean, link-rich layouts for software brands.
+- **E-commerce Mega**: Comprehensive navigation for large catalogs.
+- **Minimalist**: Subtle, understated designs for boutique stores.
+- **Gaming Dark**: High-contrast, neon-accented layouts.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: [Next.js 16](https://nextjs.org/) (Canary/Turbopack)
+- **Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/zeeshan912989/LiquidUIPro.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to browse the library.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Built with ❤️ by [Zeeshan](https://github.com/zeeshan912989)
