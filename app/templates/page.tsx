@@ -32,18 +32,18 @@ const industries = [
 ];
 
 const templates = [
-   { id: 'fashion-luxury', title: 'Fashion Luxury Template', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Luxury', 'Fashion'] },
-   { id: 'tech-minimal', title: 'Tech Minimal Template', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Modern', 'Tech'] },
-   { id: 'beauty-hero', title: 'Beauty Hero Split', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Hero', 'Minimal', 'Beauty'] },
-   { id: 'product-grid', title: 'Product Grid - Clean', image: '/assets/images/hero2.jpeg', tags: ['Product', 'Modern', 'Fashion'] },
-   { id: 'product-slider', title: 'Product Slider - Modern', image: '/assets/images/hero-penthouse.jpg', tags: ['Product', 'Minimal', 'Luxury'] },
-   { id: 'collection-list', title: 'Collection List - Sidebar', image: '/assets/images/hero1.jpeg', tags: ['Collection', 'Modern', 'Fashion'] },
-   { id: 'cart-drawer', title: 'Cart Drawer - Side', image: '/assets/images/hero2.jpeg', tags: ['Cart', 'Modern'] },
-   { id: 'one-page-checkout', title: 'One Page Checkout', image: '/assets/images/hero-luxury-living.jpg', tags: ['Checkout', 'Minimal'] },
-   { id: 'footer-dark', title: 'Footer - Dark Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Footer', 'Modern'] },
-   { id: 'landing-skincare', title: 'Landing Page - Skincare', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Beauty'] },
-   { id: 'landing-electronics', title: 'Landing Page - Electronics', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Electronics'] },
-   { id: 'landing-jewelry', title: 'Landing Page - Jewelry', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Luxury'] },
+   { id: 'fashion-luxury', title: 'Elysé Luxury Fashion', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Luxury', 'Fashion'] },
+   { id: 'tech-minimal', title: 'Aero Performance Hardware', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Modern', 'Tech'] },
+   { id: 'beauty-hero', title: 'GlowCare Beauty Hero', image: '/assets/images/hero-penthouse.jpg', tags: ['Hero', 'Minimal', 'Beauty'] },
+   { id: 'product-grid', title: 'Studio Minimalist Grid', image: '/assets/images/hero2.jpeg', tags: ['Product', 'Modern', 'Furniture'] },
+   { id: 'product-slider', title: 'Premium Product Carousel', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Product', 'Minimal', 'Luxury'] },
+   { id: 'collection-list', title: 'Curated Collection List', image: '/assets/images/hero1.jpeg', tags: ['Collection', 'Modern', 'Fashion'] },
+   { id: 'cart-drawer', title: 'Smart Slide-out Cart', image: '/assets/images/hero2.jpeg', tags: ['Cart', 'Modern'] },
+   { id: 'one-page-checkout', title: 'High-Conversion Checkout', image: '/assets/images/hero-luxury-living.jpg', tags: ['Checkout', 'Minimal'] },
+   { id: 'footer-dark', title: 'Modern Dark Footer', image: '/assets/images/hero-penthouse.jpg', tags: ['Footer', 'Modern'] },
+   { id: 'landing-skincare', title: 'Clinical Skincare Landing', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Page', 'Beauty'] },
+   { id: 'landing-electronics', title: 'Hardware Hub Landing', image: '/assets/images/hero-luxury-living.jpg', tags: ['Page', 'Electronics'] },
+   { id: 'landing-jewelry', title: 'Fine Jewelry Boutique', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Luxury'] },
 ];
 
 export default function TemplatesPage() {
