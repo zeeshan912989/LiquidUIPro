@@ -20,20 +20,31 @@ LiquidUI Pro is a premium, production-ready Shopify component library built with
 
 ## 🛍️ Component Categories
 
-### 🛒 Carts (20 New Components)
-- **Luxury Fashion**: High-end aesthetic for premium brands.
-- **Bento Grid**: Modern, modular layout for high engagement.
+### 🛒 Carts (20 Components)
+- **Luxury & Fashion**: High-end aesthetic for premium brands.
+- **Bento & Grid**: Modern, modular layout for high engagement.
 - **Glassmorphism**: Sleek, futuristic design with translucent elements.
-- **Animated Interactive**: Real-time feedback and smooth transitions.
-- **Advanced Conversion**: Optimized for maximum AOV and trust.
-- **Eco Organic**: Natural, earthy tones for sustainable brands.
+- **AI & Conversion**: Data-driven layouts optimized for sales.
 - **Subscription Focus**: Optimized for recurring revenue models.
 
-### 👣 Footers (20 Components)
+### 👣 Footers (21 Components)
 - **SaaS Modern**: Clean, link-rich layouts for software brands.
 - **E-commerce Mega**: Comprehensive navigation for large catalogs.
 - **Minimalist**: Subtle, understated designs for boutique stores.
 - **Gaming Dark**: High-contrast, neon-accented layouts.
+- **Animated Gradient**: Dynamic, colorful footers for modern brands.
+
+### 🔝 Headers (16 Components)
+- **Mega Menus**: Advanced navigation for high-SKU stores.
+- **Mobile Native**: App-like navigation for mobile-first shoppers.
+- **Luxury Lumiere**: Elegant, minimalist headers for high-ticket items.
+- **Conversion Engine**: Optimized search and navigation for sales.
+
+### ⚡ Heroes (26 Components)
+- **3D & Interactive**: Engaging layouts with parallax and motion.
+- **Bento Grid**: Modern information architecture for high impact.
+- **Video & Immersive**: High-impact visual storytelling.
+- **Ecommerce Focused**: Strategic CTA placement for better conversion.
 
 ## 🛠️ Tech Stack
 
