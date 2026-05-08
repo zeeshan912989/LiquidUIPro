@@ -1,90 +1,350 @@
 "use client"
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { 
-  Layout,
-  ArrowRight,
-  Monitor,
-  Layers
-} from 'lucide-react'
+import { Search, Eye, Copy, ChevronDown, Grid, List, Sparkles, ChevronLeft, ChevronRight, LayoutTemplate, Box, RefreshCw, Monitor, Check } from 'lucide-react'
+
+const browseLinks = [
+   { name: 'All Templates', count: 342, active: true },
+   { name: 'Headers', count: 42 },
+   { name: 'Hero Sections', count: 68 },
+   { name: 'Product Sections', count: 72 },
+   { name: 'Collection Pages', count: 36 },
+   { name: 'Product Pages', count: 28 },
+   { name: 'Cart & Checkout', count: 24 },
+   { name: 'Footers', count: 32 },
+   { name: 'Page Templates', count: 40 },
+];
+
+const styles = [
+   { name: 'Minimal', count: 82 },
+   { name: 'Modern', count: 120 },
+   { name: 'Luxury', count: 64 },
+   { name: 'Bold', count: 44 },
+   { name: 'Creative', count: 32 },
+];
+
+const industries = [
+   { name: 'Fashion', count: 86 },
+   { name: 'Beauty', count: 42 },
+   { name: 'Electronics', count: 38 },
+   { name: 'Home & Decor', count: 36 },
+   { name: 'Jewelry', count: 28 },
+];
+
+const templates = [
+   { id: 1, title: 'Fashion Minimal Hero', image: '/assets/images/hero1.jpeg', tags: ['Hero', 'Modern'] },
+   { id: 2, title: 'Luxury Product Hero', image: '/assets/images/hero2.jpeg', tags: ['Hero', 'Luxury'] },
+   { id: 3, title: 'Beauty Hero Split', image: '/assets/images/hero-penthouse.jpg', tags: ['Hero', 'Minimal'] },
+   { id: 4, title: 'Product Grid - Clean', image: '/assets/images/hero1.jpeg', tags: ['Product', 'Modern'] },
+   { id: 5, title: 'Product Slider - Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Product', 'Minimal'] },
+   { id: 6, title: 'Collection List - Sidebar', image: '/assets/images/hero2.jpeg', tags: ['Collection', 'Modern'] },
+   { id: 7, title: 'Cart Drawer - Side', image: '/assets/images/hero1.jpeg', tags: ['Cart', 'Modern'] },
+   { id: 8, title: 'One Page Checkout', image: '/assets/images/hero-penthouse.jpg', tags: ['Checkout', 'Minimal'] },
+   { id: 9, title: 'Footer - Dark Modern', image: '/assets/images/hero-liquid-gold.jpg', tags: ['Footer', 'Modern'] },
+   { id: 10, title: 'Landing Page - Skincare', image: '/assets/images/hero1.jpeg', tags: ['Page', 'Beauty'] },
+   { id: 11, title: 'Landing Page - Electronics', image: '/assets/images/hero-penthouse.jpg', tags: ['Page', 'Electronics'] },
+   { id: 12, title: 'Landing Page - Jewelry', image: '/assets/images/hero2.jpeg', tags: ['Page', 'Luxury'] },
+];
 
 export default function TemplatesPage() {
-  return (
-    <div className="min-h-screen bg-[#FBF9F7] text-[#0A0A0A] font-inter selection:bg-[#C9A96E] selection:text-white overflow-x-hidden">
-      {/* Navigation Header */}
-      <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-md border-b border-[#E4E0D9] px-6 py-4 md:px-12">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-4 group">
-            <div className="h-12 w-12 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-               <img src="/icon.svg" alt="logo" className="h-full w-full object-contain" />
+   return (
+      <div className="min-h-screen bg-white text-[#1A1A1A] font-inter selection:bg-[#C9A96E] selection:text-white">
+
+         {/* Top Navbar */}
+         <nav className="w-full bg-white border-b border-[#F3EFE9] px-6 py-4 md:px-12 relative z-50">
+            <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+               <Link href="/" className="flex items-center gap-2">
+                  <span className="text-xl font-black tracking-widest uppercase font-outfit text-[#1A1A1A]">
+                     LIQUIDUI<span className="text-[#C9A96E]">PRO</span>
+                  </span>
+               </Link>
+               <div className="hidden md:flex items-center gap-8">
+                  <Link href="/library" className="text-[13px] font-bold text-[#C9A96E]">Library</Link>
+                  <Link href="/templates" className="text-[13px] font-bold text-gray-900">Templates</Link>
+                  <Link href="/pricing" className="text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-colors">Pricing</Link>
+                  <Link href="/support" className="text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-colors">Support</Link>
+               </div>
+               <div className="flex items-center gap-4">
+                  <Link href="/components/cart" className="px-6 py-2.5 bg-[#C9A96E] text-white rounded-md text-[11px] font-bold transition-all shadow-sm">
+                     Get Started
+                  </Link>
+                  <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="px-6 py-2.5 bg-white border border-[#E4E0D9] rounded-md text-[11px] font-bold flex items-center gap-2 hover:bg-gray-50 transition-all">
+                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                     GitHub
+                  </Link>
+               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black tracking-[0.2em] uppercase leading-none font-outfit text-[#0A0A0A]">LIQUIDUI<span className="text-[#C9A96E]">PRO</span></span>
-              <span className="text-[8px] font-black uppercase tracking-[0.5em] text-[#C9A96E]/60 mt-1.5">Design by SHAH</span>
+         </nav>
+
+         {/* Hero Section */}
+         <section className="bg-[#FCFAF8] pt-20 pb-24 border-b border-[#F3EFE9] overflow-hidden">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16 relative">
+               <div className="lg:w-1/2 relative z-10">
+                  <span className="text-[10px] font-black text-[#C9A96E] uppercase tracking-widest mb-6 block">Template Library</span>
+                  <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 font-outfit text-[#1A1A1A]">
+                     Beautiful Shopify <br />
+                     <span className="text-[#C9A96E]">Templates</span> & Sections
+                  </h1>
+                  <p className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed">
+                     Explore our collection of premium templates and sections built for speed, conversion, and stunning design.
+                  </p>
+
+                  {/* Search Bar */}
+                  <div className="relative max-w-md mb-8">
+                     <input
+                        type="text"
+                        placeholder="Search templates, sections..."
+                        className="w-full pl-6 pr-12 py-4 bg-white border border-[#E4E0D9] rounded-xl outline-none focus:border-[#C9A96E] transition-colors shadow-sm text-sm"
+                     />
+                     <Search className="absolute right-5 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  </div>
+
+                  {/* Popular Tags */}
+                  <div className="flex items-center gap-3 flex-wrap">
+                     <span className="text-[11px] font-bold text-gray-900 mr-2">Popular:</span>
+                     {['Hero', 'Product', 'Collection', 'Header', 'Footer', 'Cart'].map(tag => (
+                        <div key={tag} className="px-4 py-1.5 bg-white border border-[#E4E0D9] rounded-full text-[10px] font-bold text-gray-500 hover:border-[#C9A96E] hover:text-[#C9A96E] cursor-pointer transition-colors shadow-sm">
+                           {tag}
+                        </div>
+                     ))}
+                  </div>
+               </div>
+
+               {/* Hero Mockup Cards */}
+               <div className="lg:w-1/2 relative h-[400px] hidden lg:block">
+                  {/* Card 1 (Back Left) */}
+                  <div className="absolute top-10 left-0 w-[240px] aspect-[9/16] bg-white rounded-2xl shadow-xl border border-gray-100 p-2 transform -rotate-6 opacity-80 overflow-hidden">
+                     <img src="/assets/images/hero-penthouse.jpg" className="w-full h-full object-cover rounded-xl" alt="mockup 1" />
+                  </div>
+                  {/* Card 2 (Back Right) */}
+                  <div className="absolute top-20 right-0 w-[260px] aspect-[9/16] bg-white rounded-2xl shadow-xl border border-gray-100 p-2 transform rotate-6 opacity-80 overflow-hidden">
+                     <img src="/assets/images/hero-liquid-gold.jpg" className="w-full h-full object-cover rounded-xl" alt="mockup 2" />
+                  </div>
+                  {/* Card 3 (Front Center) */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] aspect-[9/16] bg-white rounded-3xl shadow-2xl border border-gray-100 p-2 z-10 overflow-hidden">
+                     <div className="w-full h-full bg-[#F5F2EE] rounded-2xl relative overflow-hidden flex flex-col">
+                        <div className="p-4 flex justify-between items-center bg-white border-b border-gray-50">
+                           <div className="h-2 w-16 bg-gray-200 rounded" />
+                           <div className="h-4 w-4 rounded-full bg-gray-200" />
+                        </div>
+                        <div className="flex-1 p-4">
+                           <img src="/assets/images/hero1.jpeg" className="w-full aspect-[4/5] object-cover rounded-xl shadow-sm mb-4" alt="mockup main" />
+                           <div className="grid grid-cols-3 gap-2">
+                              <div className="aspect-[3/4] bg-gray-100 rounded-lg" />
+                              <div className="aspect-[3/4] bg-gray-100 rounded-lg" />
+                              <div className="aspect-[3/4] bg-gray-100 rounded-lg" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-          </Link>
-          <div className="flex items-center gap-8">
-            <Link href="/" className="text-[10px] font-black uppercase tracking-[0.3em] text-[#7A7570] hover:text-black transition-colors">Back to Home</Link>
-            <Link href="/pricing" className="px-6 py-2 bg-[#C9A96E] text-white rounded-lg text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#A8853F] transition-all shadow-lg shadow-[#C9A96E]/20">Get Pro</Link>
-          </div>
-        </div>
-      </nav>
+         </section>
 
-      <main className="pt-48 pb-24 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-32 text-center"
-        >
-          <div className="inline-block px-4 py-1.5 bg-white border border-[#F3EFE9] rounded-full text-[12px] font-bold text-[#C9A96E] mb-8 uppercase tracking-widest">
-             Theme Blueprints
-          </div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-12">
-             Master <span className="text-[#C9A96E]">Archetypes.</span>
-          </h1>
-          <p className="max-w-3xl mx-auto text-xl text-[#666] font-medium leading-relaxed">
-            Elite-tier Shopify theme templates designed for high-SKU catalogs and luxury brand narratives. Launch in minutes.
-          </p>
-        </motion.div>
+         {/* Main Content Area */}
+         <section className="py-16 px-6 md:px-12 max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {[
-            { title: 'Luxury Atelier', type: 'Premium', desc: 'A sophisticated design framework with high-fidelity animated cart drawers and mega navigation systems.' },
-            { title: 'Next-Gen SaaS', type: 'Clean', desc: 'The definitive artifact for digital product stores, featuring complex grid systems and elite dark-mode transitions.' },
-            { title: 'Vanguard Fashion', type: 'Bold', desc: 'Engineered for high-impact visual storytelling with large-scale imagery and smooth liquid reveals.' },
-            { title: 'Modern Estate', type: 'Minimal', desc: 'Precision-built grid architecture for home and living catalogs with advanced filtering logic.' },
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative bg-white border border-[#E4E0D9] rounded-[3.5rem] overflow-hidden hover:border-[#C9A96E] transition-all shadow-sm flex flex-col"
-            >
-              <div className="aspect-[16/10] bg-[#FBF9F7] flex items-center justify-center relative overflow-hidden p-12">
-                 <div className="absolute top-8 left-8 bg-white px-4 py-1.5 rounded-full border border-[#E4E0D9] text-[9px] font-black uppercase tracking-[0.2em] text-[#7A7570]">
-                   TYPE: {item.type}
-                 </div>
-                 <div className="w-full h-full border border-[#E4E0D9] rounded-2xl bg-white shadow-lg flex items-center justify-center">
-                    <Layout className="h-16 w-16 text-[#E4E0D9] group-hover:scale-110 transition-all duration-700" />
-                 </div>
-              </div>
-              <div className="p-12">
-                 <h3 className="text-3xl font-bold tracking-tight mb-4">{item.title}</h3>
-                 <p className="text-[#666] leading-relaxed mb-10 text-[15px]">{item.desc}</p>
-                 <button className="px-10 py-4 bg-[#0A0A0A] text-white rounded-xl text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#C9A96E] transition-all flex items-center gap-4 group/btn w-fit">
-                    Launch Artifact <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-2 transition-transform" />
-                 </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </main>
+            {/* Sidebar */}
+            <aside className="w-full lg:w-[240px] shrink-0 space-y-12">
 
-      <div className="py-8 bg-white border-t border-[#E4E0D9] text-center mt-20">
-         <p className="text-[12px] font-bold text-[#7A7570] uppercase tracking-[0.4em]">Engineered for Shopify. Design by SHAH.</p>
+               {/* Browse Section */}
+               <div>
+                  <h3 className="text-[11px] font-black uppercase tracking-widest text-gray-900 mb-6">Browse</h3>
+                  <ul className="space-y-1.5">
+                     {browseLinks.map((link, i) => (
+                        <li key={i}>
+                           <button className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-[13px] font-bold transition-colors ${link.active ? 'bg-[#C9A96E] text-white shadow-md' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'}`}>
+                              <span className="flex items-center gap-3">
+                                 {i === 0 && <LayoutTemplate className="h-4 w-4 opacity-70" />}
+                                 {i === 1 && <Monitor className="h-4 w-4 opacity-70" />}
+                                 {i === 2 && <Box className="h-4 w-4 opacity-70" />}
+                                 {i > 2 && <div className="h-1.5 w-1.5 rounded-full bg-current opacity-30 ml-1.5" />}
+                                 {link.name}
+                              </span>
+                              <span className={`text-[10px] ${link.active ? 'text-white/80' : 'text-gray-400'}`}>{link.count}</span>
+                           </button>
+                        </li>
+                     ))}
+                  </ul>
+               </div>
+
+               {/* Filter Section */}
+               <div>
+                  <h3 className="text-[11px] font-black uppercase tracking-widest text-gray-900 mb-6">Filter By</h3>
+
+                  {/* Style Filter */}
+                  <div className="mb-8 border-t border-gray-100 pt-6">
+                     <div className="flex items-center justify-between mb-4 cursor-pointer group">
+                        <span className="text-[13px] font-bold text-gray-900">Style</span>
+                        <ChevronDown className="h-4 w-4 text-gray-400 group-hover:text-gray-900" />
+                     </div>
+                     <ul className="space-y-3">
+                        {styles.map((style, i) => (
+                           <li key={i} className="flex items-center justify-between group cursor-pointer">
+                              <div className="flex items-center gap-3">
+                                 <div className="h-4 w-4 rounded border border-gray-300 flex items-center justify-center group-hover:border-[#C9A96E] transition-colors">
+                                    {i === 0 && <Check className="h-3 w-3 text-[#C9A96E]" />}
+                                 </div>
+                                 <span className="text-[13px] text-gray-600 group-hover:text-gray-900">{style.name}</span>
+                              </div>
+                              <span className="text-[10px] text-gray-400">{style.count}</span>
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+
+                  {/* Industry Filter */}
+                  <div className="mb-8 border-t border-gray-100 pt-6">
+                     <div className="flex items-center justify-between mb-4 cursor-pointer group">
+                        <span className="text-[13px] font-bold text-gray-900">Industry</span>
+                        <ChevronDown className="h-4 w-4 text-gray-400 group-hover:text-gray-900" />
+                     </div>
+                     <ul className="space-y-3">
+                        {industries.map((ind, i) => (
+                           <li key={i} className="flex items-center justify-between group cursor-pointer">
+                              <div className="flex items-center gap-3">
+                                 <div className="h-4 w-4 rounded border border-gray-300 flex items-center justify-center group-hover:border-[#C9A96E] transition-colors" />
+                                 <span className="text-[13px] text-gray-600 group-hover:text-gray-900">{ind.name}</span>
+                              </div>
+                              <span className="text-[10px] text-gray-400">{ind.count}</span>
+                           </li>
+                        ))}
+                        <li>
+                           <button className="text-[12px] font-bold text-gray-400 hover:text-gray-900 mt-2 flex items-center gap-1">
+                              + Show More
+                           </button>
+                        </li>
+                     </ul>
+                  </div>
+
+                  {/* Color Mode */}
+                  <div className="mb-8 border-t border-gray-100 pt-6">
+                     <div className="flex items-center justify-between mb-4 cursor-pointer">
+                        <span className="text-[13px] font-bold text-gray-900">Color Mode</span>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <div className="h-6 w-6 rounded-full bg-white border border-gray-200 cursor-pointer ring-2 ring-offset-1 ring-[#C9A96E]" />
+                        <div className="h-6 w-6 rounded-full bg-black cursor-pointer" />
+                        <div className="h-6 w-6 rounded-full bg-[#C9A96E] cursor-pointer" />
+                        <div className="h-6 w-6 rounded-full bg-[#3B82F6] cursor-pointer" />
+                        <div className="h-6 w-6 rounded-full bg-[#10B981] cursor-pointer" />
+                        <div className="h-6 w-6 rounded-full bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-500 cursor-pointer" />
+                     </div>
+                  </div>
+
+                  {/* Reset Button */}
+                  <button className="w-full py-3 bg-white border border-gray-200 rounded-lg text-[12px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors text-gray-600">
+                     <RefreshCw className="h-3 w-3" /> Reset Filters
+                  </button>
+               </div>
+            </aside>
+
+            {/* Main Grid Content */}
+            <main className="flex-1">
+               {/* Top Bar */}
+               <div className="flex flex-col sm:flex-row items-center justify-between mb-8 pb-6 border-b border-gray-100">
+                  <div>
+                     <h2 className="text-2xl font-bold text-gray-900">All Templates</h2>
+                     <p className="text-sm text-gray-500 mt-1">342 templates found</p>
+                  </div>
+                  <div className="flex items-center gap-4 mt-4 sm:mt-0">
+                     <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 cursor-pointer hover:border-gray-300 transition-colors">
+                        <span className="text-[12px] font-bold text-gray-700">Sort by: Newest</span>
+                        <ChevronDown className="h-4 w-4 text-gray-400" />
+                     </div>
+                     <div className="flex items-center gap-1 bg-gray-50 p-1 rounded-lg border border-gray-100">
+                        <button className="p-2 bg-white rounded shadow-sm text-[#C9A96E]">
+                           <Grid className="h-4 w-4" />
+                        </button>
+                        <button className="p-2 text-gray-400 hover:text-gray-900 transition-colors">
+                           <List className="h-4 w-4" />
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+               {/* Grid */}
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                  {templates.map((template) => (
+                     <div key={template.id} className="group">
+                        {/* Image Container */}
+                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 mb-4 relative">
+                           <img
+                              src={template.image}
+                              alt={template.title}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                           />
+                           {/* Hover Overlay */}
+                           <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                              <button className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-xl">
+                                 <Eye className="h-5 w-5" />
+                              </button>
+                           </div>
+                        </div>
+
+                        {/* Card Info */}
+                        <div className="px-1">
+                           <h4 className="text-[15px] font-bold text-gray-900 mb-3">{template.title}</h4>
+                           <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                 {template.tags.map(tag => (
+                                    <span key={tag} className="px-3 py-1 bg-[#FBF9F7] border border-[#E4E0D9] text-gray-600 text-[10px] font-bold rounded-md uppercase tracking-wider">
+                                       {tag}
+                                    </span>
+                                 ))}
+                              </div>
+                              <div className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                 <button className="p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
+                                    <Eye className="h-3.5 w-3.5" />
+                                 </button>
+                                 <button className="p-2 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
+                                    <Copy className="h-3.5 w-3.5" />
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+
+               {/* Pagination */}
+               <div className="flex justify-center items-center gap-2">
+                  <button className="h-10 w-10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors">
+                     <ChevronLeft className="h-4 w-4" />
+                  </button>
+                  <button className="h-10 w-10 rounded-lg bg-[#C9A96E] text-white font-bold text-sm shadow-md">1</button>
+                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">2</button>
+                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">3</button>
+                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">4</button>
+                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">5</button>
+                  <span className="text-gray-400 px-2">...</span>
+                  <button className="h-10 w-10 rounded-lg text-gray-600 font-bold text-sm hover:bg-gray-50 transition-colors">15</button>
+                  <button className="h-10 w-10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors">
+                     <ChevronRight className="h-4 w-4" />
+                  </button>
+               </div>
+
+            </main>
+         </section>
+
+         {/* Bottom Banner */}
+         <section className="px-6 md:px-12 pb-24 max-w-[1400px] mx-auto">
+            <div className="w-full bg-[#FBF9F7] border border-[#F3EFE9] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+               <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 bg-white rounded-2xl border border-[#F3EFE9] flex items-center justify-center shadow-sm shrink-0 text-[#C9A96E]">
+                     <Sparkles className="h-8 w-8" />
+                  </div>
+                  <div>
+                     <h4 className="text-lg font-bold text-gray-900 mb-1">Don't find what you need?</h4>
+                     <p className="text-sm text-gray-500">Our AI can generate custom sections exactly how you imagine.</p>
+                  </div>
+               </div>
+               <button className="px-8 py-4 bg-[#C9A96E] text-white rounded-xl text-[12px] font-bold flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-lg shadow-[#C9A96E]/20 whitespace-nowrap">
+                  Generate with AI <Sparkles className="h-4 w-4" />
+               </button>
+            </div>
+         </section>
+
       </div>
-    </div>
-  )
+   )
 }

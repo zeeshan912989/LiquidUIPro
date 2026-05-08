@@ -16,7 +16,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   // In a real app, you'd check if the category exists in a list
   // For now, if no components found, we'll show empty or 404
-  
+
   const categoryName = category.charAt(0).toUpperCase() + category.slice(1)
 
   return (

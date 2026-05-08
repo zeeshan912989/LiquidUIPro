@@ -208,11 +208,8 @@ export default function LandingPage() {
          </section>
 
          {/* Section 2: Design. Customize. Export. Done. */}
-         <section className="py-32 px-6 md:px-12 bg-white relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
-               <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M785,639.5Q714,779,566.5,841Q419,903,283.5,820Q148,737,86.5,584.5Q25,432,107,294Q189,156,344.5,88.5Q500,21,634.5,108.5Q769,196,812.5,348Q856,500,785,639.5Z" fill="#C9A96E" /></svg>
-            </div>
-            <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-20 relative z-10">
+         <section className="py-24 px-6 md:px-12 bg-[#FBF9F7] relative overflow-hidden">
+            <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16">
                <div className="lg:w-[45%]">
                   <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-8 font-outfit">
                      Design. Customize. <br />
@@ -221,70 +218,88 @@ export default function LandingPage() {
                   <p className="text-lg text-[#666] mb-12 max-w-lg leading-relaxed font-medium">
                      Create stunning Shopify sections with our drag & drop builder. Fully customizable, responsive, and export-ready.
                   </p>
+
+                  {/* Features Grid */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                      {[
-                        { title: 'Drag & Drop', desc: 'Easy Visual Builder', icon: MousePointer2 },
-                        { title: 'Fully Customizable', desc: 'Colors, Fonts & More', icon: Layers },
-                        { title: '100% Responsive', desc: 'All Devices Ready', icon: Smartphone },
-                        { title: 'Export Clean Code', desc: 'Liquid + Schema', icon: Code2 },
+                        { title: 'Drag & Drop', icon: MousePointer2 },
+                        { title: 'Fully Customizable', icon: Layers },
+                        { title: '100% Responsive', icon: Smartphone },
+                        { title: 'Export Clean Code', icon: Code2 },
                      ].map((item, i) => (
-                        <div key={i} className="p-6 bg-[#FBF9F7] rounded-3xl border border-[#F3EFE9] text-center group">
-                           <div className="h-10 w-10 bg-white rounded-xl border border-[#F3EFE9] flex items-center justify-center mx-auto mb-4 text-[#C9A96E] group-hover:scale-110 transition-transform">
+                        <div key={i} className="text-center group">
+                           <div className="h-12 w-12 bg-white rounded-2xl border border-[#F3EFE9] flex items-center justify-center mx-auto mb-3 text-[#C9A96E] group-hover:scale-110 transition-transform shadow-sm">
                               <item.icon className="h-5 w-5" />
                            </div>
-                           <h4 className="text-[11px] font-bold mb-1 uppercase tracking-wider">{item.title}</h4>
-                           <p className="text-[9px] text-[#999]">{item.desc}</p>
+                           <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">{item.title}</h4>
+                           <p className="text-[9px] text-gray-400">Easy Visual Builder</p>
                         </div>
                      ))}
                   </div>
+
                   <div className="flex gap-4">
-                     <Link href="/components/cart" className="px-10 py-4 bg-[#C9A96E] text-white rounded-xl font-bold flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">Get Started <ArrowRight className="h-4 w-4" /></Link>
-                     <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="px-10 py-4 bg-white border border-[#E4E0D9] rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-all">GitHub</Link>
+                     <Link href="/components/cart" className="px-10 py-4 bg-[#C9A96E] text-white rounded-xl font-bold flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">
+                        Get Started <ArrowRight className="h-4 w-4" />
+                     </Link>
+                     <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="px-10 py-4 bg-white border border-[#E4E0D9] rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-all">
+                        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                        GitHub
+                     </Link>
                   </div>
                </div>
+
+               {/* Large Mockup Interface */}
                <div className="lg:w-[55%] relative">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white p-0.5">
+                  <div className="relative rounded-3xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.06)] border border-[#E4E0D9] bg-white p-0.5">
+                     {/* Browser Header */}
                      <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-50">
-                        <div className="flex items-center gap-1.5"><div className="h-2 w-2 rounded-full bg-red-400" /><div className="h-2 w-2 rounded-full bg-yellow-400" /><div className="h-2 w-2 rounded-full bg-green-400" /></div>
-                        <div className="flex items-center gap-4"><div className="h-4 w-16 bg-gray-50 rounded" /><div className="px-4 py-1 bg-[#C9A96E] text-white text-[8px] font-bold rounded">Export</div></div>
+                        <div className="flex items-center gap-1.5">
+                           <div className="h-2 w-2 rounded-full bg-[#FF5F56]" />
+                           <div className="h-2 w-2 rounded-full bg-[#FFBD2E]" />
+                           <div className="h-2 w-2 rounded-full bg-[#27C93F]" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                           <div className="h-4 w-16 bg-[#FBF9F7] rounded-md border border-[#F3EFE9]" />
+                           <button className="px-4 py-1.5 bg-[#C9A96E] text-white text-[9px] font-bold rounded-md hover:bg-[#A8853F] transition-all">Export</button>
+                        </div>
                      </div>
-                     <div className="bg-white aspect-[1.4/1] flex">
-                        <div className="w-[180px] border-r border-gray-50 p-5 space-y-6 bg-white hidden md:block">
-                           <div className="h-3 w-16 bg-gray-100 rounded" />
-                           <div className="space-y-2">
+
+                     <div className="bg-white aspect-[1.5/1] flex overflow-hidden">
+                        {/* Mockup Sidebar */}
+                        <div className="w-[180px] border-r border-gray-100 p-5 space-y-6 hidden md:block">
+                           <div className="h-4 w-20 bg-gray-50 rounded mb-4" />
+                           <div className="space-y-2.5">
                               {['Header', 'Hero Sections', 'Product Sections', 'Collections', 'Features', 'Testimonials', 'FAQ', 'Footers'].map((item, idx) => (
-                                 <div key={item} className={cn("flex items-center justify-between px-2 py-1.5 rounded", idx === 1 ? "bg-[#FBF9F7] text-[#C9A96E]" : "text-gray-400")}>
-                                    <span className="text-[8px] font-bold">{item}</span>
-                                    <ChevronRight className="h-2 w-2 opacity-30" />
+                                 <div key={item} className={cn(
+                                    "flex items-center justify-between px-3 py-2 rounded-lg transition-colors",
+                                    idx === 1 ? "bg-[#FBF9F7] text-[#C9A96E]" : "text-gray-400 hover:bg-gray-50"
+                                 )}>
+                                    <span className="text-[9px] font-bold">{item}</span>
+                                    <ChevronRight className="h-2 w-2 opacity-50" />
                                  </div>
                               ))}
                            </div>
                         </div>
-                                                {/* Mockup Canvas */}
+
+                        {/* Mockup Canvas */}
                         <div className="flex-1 bg-[#FBF9F7] p-8 relative flex items-center justify-center">
-                           <div className="w-full max-w-[400px] aspect-[1.2/1] bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col overflow-hidden transform group-hover:scale-[1.02] transition-all duration-700">
-                              <div className="flex-1 bg-[#F3EFE9] flex items-center px-10 relative overflow-hidden">
-                                 <div className="relative z-10 max-w-[180px]">
-                                    <span className="text-[7px] font-bold text-gray-400 tracking-[0.3em] uppercase block mb-2">NEW ARRIVAL</span>
-                                    <h4 className="text-2xl font-black leading-tight mb-4 font-outfit">Elegant. <br /> Modern. <br /> <span className="text-[#C9A96E]">Powerful.</span></h4>
-                                    <div className="px-5 py-2 bg-[#C9A96E] text-white text-[8px] font-bold rounded shadow-lg shadow-[#C9A96E]/20">Shop Now</div>
-                                 </div>
-                                 <div className="absolute right-0 bottom-0 w-1/2 h-full">
-                                    <img 
-                                       src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop" 
-                                       alt="luxury interior"
-                                       className="h-full w-full object-cover object-center"
-                                    />
-                                 </div>
+                           <div className="w-full bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col overflow-hidden">
+                              <div className="flex-1 relative overflow-hidden group">
+                                 <img
+                                    src="/assets/images/hero1.jpeg"
+                                    alt="hero banner mockup"
+                                    className="w-full h-full object-cover object-center transition-transform duration-[3s] group-hover:scale-105"
+                                 />
                               </div>
-                              <div className="h-[60px] bg-white border-t border-gray-50 p-4 grid grid-cols-4 gap-2">
+                              {/* Bottom Thumbnails */}
+                              <div className="h-[60px] bg-white border-t border-gray-50 p-4 flex items-center gap-3">
                                  {[
-                                    'https://images.unsplash.com/photo-1616489953149-8f5370d93708?q=80&w=200&auto=format&fit=crop',
-                                    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=200&auto=format&fit=crop',
-                                    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=200&auto=format&fit=crop',
-                                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=200&auto=format&fit=crop'
+                                    '/assets/images/hero1.jpeg',
+                                    '/assets/images/hero-penthouse.jpg',
+                                    '/assets/images/hero-liquid-gold.jpg',
+                                    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=200&auto=format&fit=crop'
                                  ].map((img, i) => (
-                                    <div key={i} className="bg-gray-50 rounded overflow-hidden">
+                                    <div key={i} className="h-full aspect-square bg-gray-50 rounded-lg overflow-hidden border border-gray-100 shadow-sm">
                                        <img src={img} className="h-full w-full object-cover" alt="interior" />
                                     </div>
                                  ))}
@@ -292,25 +307,27 @@ export default function LandingPage() {
                            </div>
                         </div>
 
-                        {/* Mockup Settings */}
-                        <div className="w-[200px] border-l border-gray-50 p-5 space-y-6 bg-white hidden lg:block">
-                           <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest block mb-4">Hero Banner</span>
-                           <div className="flex gap-4 border-b border-gray-50 pb-2 mb-4">
-                              <span className="text-[8px] font-bold text-[#C9A96E] border-b border-[#C9A96E]">Content</span>
-                              <span className="text-[8px] font-bold text-gray-300">Style</span>
-                              <span className="text-[8px] font-bold text-gray-300">Advanced</span>
+                        {/* Mockup Inspector Panel */}
+                        <div className="w-[200px] border-l border-gray-50 p-6 space-y-6 hidden lg:block bg-white">
+                           <div className="flex flex-col gap-1 mb-4">
+                              <span className="text-[10px] font-bold text-gray-900 uppercase tracking-widest">Hero Banner</span>
+                              <div className="flex gap-4 mt-2">
+                                 <span className="text-[8px] font-bold text-[#C9A96E] border-b border-[#C9A96E] pb-1 cursor-pointer">Content</span>
+                                 <span className="text-[8px] font-bold text-gray-300 cursor-pointer">Style</span>
+                                 <span className="text-[8px] font-bold text-gray-300 cursor-pointer">Advanced</span>
+                              </div>
                            </div>
                            <div className="space-y-4">
                               {['Heading', 'Subheading', 'Button Text'].map(field => (
                                  <div key={field} className="space-y-1.5">
-                                    <span className="text-[8px] font-bold text-gray-500 uppercase">{field}</span>
-                                    <div className="h-6 w-full bg-[#FBF9F7] border border-[#F3EFE9] rounded" />
+                                    <span className="text-[8px] font-bold text-gray-400 uppercase">{field}</span>
+                                    <div className="h-8 w-full bg-[#FBF9F7] border border-[#F3EFE9] rounded-lg" />
                                  </div>
                               ))}
                               <div className="pt-4">
-                                 <span className="text-[8px] font-bold text-gray-500 uppercase block mb-2">Image</span>
-                                 <div className="aspect-video bg-[#FBF9F7] rounded border border-dashed border-[#E4E0D9] flex items-center justify-center overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=400&auto=format&fit=crop" className="h-full w-full object-cover opacity-50" alt="thumbnail" />
+                                 <span className="text-[8px] font-bold text-gray-400 uppercase block mb-2">Image Source</span>
+                                 <div className="aspect-[1.5/1] bg-[#FBF9F7] rounded-xl border border-dashed border-[#E4E0D9] flex items-center justify-center overflow-hidden">
+                                    <img src="/assets/images/hero1.jpeg" className="h-full w-full object-cover" alt="thumb" />
                                  </div>
                               </div>
                            </div>
@@ -322,122 +339,103 @@ export default function LandingPage() {
          </section>
 
          {/* Section 3: AI-Powered Sections in Seconds */}
-         <section className="py-32 px-6 md:px-12 bg-white relative">
+         <section className="py-24 px-6 md:px-12 bg-white relative">
             <div className="max-w-[1400px] mx-auto">
-               <div className="flex flex-col lg:flex-row items-center gap-24 mb-32">
-                  <div className="lg:w-[40%]">
-                     <h2 className="text-6xl md:text-7xl font-bold leading-[1.05] mb-8 font-outfit">
-                        AI-Powered <br />
-                        Sections in <br />
-                        <span className="text-[#C9A96E]">Seconds</span>
-                     </h2>
-                     <p className="text-[17px] text-[#666] mb-12 max-w-lg leading-relaxed font-medium">
-                        Just describe what you want, and AI will generate a complete, ready-to-use Shopify section.
-                     </p>
-                     
-                     <div className="bg-[#0A0A0A] p-2 rounded-3xl mb-12 flex items-center shadow-2xl relative">
-                        <div className="absolute -top-3 left-6 px-3 py-1 bg-[#C9A96E] text-white text-[8px] font-black rounded-full uppercase tracking-widest">AI Prompt</div>
-                        <div className="flex-1 px-8 py-5 text-[14px] text-gray-400 font-medium">
-                           "Create a luxury hero banner for jewelry store"
-                        </div>
-                        <button className="mr-2 px-8 py-4 bg-[#C9A96E] text-white text-[11px] font-black rounded-2xl flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">
-                           Generate <Sparkles className="h-4 w-4" />
-                        </button>
-                     </div>
+               {/* Center Aligned Text Content */}
+               <div className="flex flex-col items-center text-center mb-16">
+                  <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-6 font-outfit">
+                     AI-Powered <br className="md:hidden" />
+                     Sections in <span className="text-[#C9A96E]">Seconds</span>
+                  </h2>
+                  <p className="text-lg text-[#666] max-w-2xl leading-relaxed font-medium mb-10">
+                     Just describe what you want, and AI will generate a complete, ready-to-use Shopify section.
+                  </p>
 
-                     <div className="flex gap-4">
-                        <Link href="/components/cart" className="px-10 py-4 bg-[#C9A96E] text-white rounded-xl font-bold flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">
-                           Get Started <ArrowRight className="h-4 w-4" />
-                        </Link>
-                        <Link href="https://github.com/zeeshan912989/LiquidUIPro" className="px-10 py-4 bg-white border border-[#E4E0D9] rounded-xl font-bold flex items-center gap-2 hover:bg-gray-50 transition-all">
-                           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-                           GitHub
-                        </Link>
+                  {/* AI Prompt Input */}
+                  <div className="bg-[#0A0A0A] p-2 rounded-2xl flex items-center shadow-2xl max-w-2xl w-full mx-auto">
+                     <div className="flex-1 px-8 py-4 text-sm text-gray-400 font-medium italic text-left">
+                        "Create a luxury hero banner for jewelry store"
+                     </div>
+                     <button className="mr-2 px-8 py-3 bg-[#C9A96E] text-white text-[11px] font-black rounded-xl flex items-center gap-2 hover:bg-[#A8853F] transition-all shadow-xl shadow-[#C9A96E]/20">
+                        Generate <Sparkles className="h-4 w-4" />
+                     </button>
+                  </div>
+               </div>
+
+               {/* AI Full Width Flow */}
+               <div className="relative flex flex-col lg:flex-row items-center justify-center gap-6 xl:gap-10 mb-24 max-w-[1200px] mx-auto w-full">
+
+                  {/* Prompt Card */}
+                  <div className="w-[260px] shrink-0 bg-white p-10 rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.06)] text-center relative z-10 border border-[#F3EFE9]">
+                     <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-8 block">Your Prompt</span>
+                     <p className="text-[14px] text-gray-600 leading-relaxed italic mb-10">"Create a luxury hero banner for jewelry store with dark background and golden accents"</p>
+                     <div className="h-12 w-12 bg-[#C9A96E] rounded-full flex items-center justify-center mx-auto text-white shadow-lg shadow-[#C9A96E]/30">
+                        <Sparkles className="h-5 w-5" />
                      </div>
                   </div>
 
-                  <div className="lg:w-[60%] relative flex items-center justify-between gap-6">
-                     {/* Your Prompt Box */}
-                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="w-[220px] bg-white p-8 rounded-3xl border border-[#F3EFE9] shadow-xl relative hidden md:block"
-                     >
-                        <span className="text-[9px] font-black text-[#888] uppercase tracking-[0.3em] mb-6 block">Your Prompt</span>
-                        <p className="text-[12px] text-[#666] leading-relaxed italic font-medium mb-10">"Create a luxury hero banner for jewelry store with dark background and golden accents"</p>
-                        <div className="h-12 w-12 bg-[#C9A96E]/10 rounded-full flex items-center justify-center mx-auto ring-8 ring-[#FBF9F7]">
-                           <Sparkles className="h-6 w-6 text-[#C9A96E]" />
-                        </div>
-                     </motion.div>
-                     
-                     <ArrowRight className="h-8 w-8 text-[#E4E0D9] hidden lg:block" />
+                  {/* Dotted Arrow */}
+                  <div className="hidden lg:flex items-center gap-1 text-[#C9A96E]/40">
+                     <div className="h-[2px] w-8 border-t-[3px] border-dashed border-[#C9A96E]/40" />
+                     <ChevronRight className="h-4 w-4" />
+                  </div>
 
-                     {/* Main Generative Visual */}
-                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="flex-1 bg-[#0A0A0A] aspect-[1.4/1] rounded-[2.5rem] overflow-hidden shadow-2xl relative border-8 border-white ring-1 ring-gray-100"
-                     >
-                        <img 
-                           src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1200&auto=format&fit=crop" 
-                           className="h-full w-full object-cover opacity-60 scale-110" 
-                           alt="jewelry"
-                        />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                           <span className="text-[8px] font-bold text-[#C9A96E] uppercase tracking-[0.3em] mb-4">NEW COLLECTION</span>
-                           <h4 className="text-xl md:text-3xl font-black text-white leading-tight mb-4 uppercase">Timeless Beauty. <br /> <span className="text-[#C9A96E]">Luxury</span> Redefined.</h4>
-                           <div className="px-6 py-2 border border-[#C9A96E] text-[#C9A96E] text-[9px] font-bold rounded">Explore Collection</div>
-                        </div>
-                     </motion.div>
+                  {/* Visual Preview (Dark Theme - Ring) */}
+                  <div className="flex-1 max-w-[600px] w-full bg-[#0A0A0A] aspect-[16/9] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] relative z-10 border border-gray-800">
+                     <img
+                        src="/assets/images/hero2.jpeg"
+                        className="h-full w-full object-cover transition-transform duration-[5s] hover:scale-105"
+                        alt="luxury ring generated banner"
+                     />
+                  </div>
 
-                     <ArrowRight className="h-8 w-8 text-[#E4E0D9] hidden lg:block" />
+                  {/* Dotted Arrow */}
+                  <div className="hidden lg:flex items-center gap-1 text-[#C9A96E]/40">
+                     <div className="h-[2px] w-8 border-t-[3px] border-dashed border-[#C9A96E]/40" />
+                     <ChevronRight className="h-4 w-4" />
+                  </div>
 
-                     {/* Generated Code Box */}
-                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="w-[240px] bg-[#0A0A0A] p-8 rounded-3xl border border-gray-800 shadow-2xl relative hidden lg:block h-[320px] overflow-hidden font-mono text-[8px] text-gray-400"
-                     >
-                        <div className="flex justify-between items-center mb-6">
-                           <span className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Generated Code</span>
-                           <div className="h-6 w-6 bg-[#C9A96E]/20 rounded-full flex items-center justify-center">
-                              <Code2 className="h-3 w-3 text-[#C9A96E]" />
-                           </div>
+                  {/* Generated Code Window */}
+                  <div className="w-[280px] shrink-0 bg-[#161616] p-8 rounded-[2rem] shadow-2xl relative z-10 h-[340px] overflow-hidden font-mono text-[10px] text-gray-500 border border-gray-800/50">
+                     <div className="flex justify-between items-center mb-8">
+                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Generated Code</span>
+                        <div className="h-8 w-8 bg-[#C9A96E]/10 rounded-full flex items-center justify-center">
+                           <Code2 className="h-4 w-4 text-[#C9A96E]" />
                         </div>
-                        <div className="space-y-1.5 leading-relaxed">
-                           <div className="text-[#C9A96E] opacity-60 italic">{"{% schema %}"}</div>
-                           <div className="text-gray-400">{"{"}</div>
-                           <div className="pl-3 text-gray-400">"name": <span className="text-green-400">"AI Hero Banner"</span>,</div>
-                           <div className="pl-3 text-gray-400">"settings": [</div>
-                           <div className="pl-6 text-gray-500">{"{ \"type\": \"text\", \"id\": \"title\" }"},</div>
-                           <div className="pl-6 text-gray-500">{"{ \"type\": \"text\", \"id\": \"sub\" }"}</div>
-                           <div className="pl-3 text-gray-400">]</div>
-                           <div className="text-gray-400">{"}"}</div>
-                           <div className="text-[#C9A96E] opacity-60 italic">{"{% endschema %}"}</div>
-                           <div className="text-blue-400">{"<div class=\"ai-hero\">"}</div>
-                           <div className="pl-3 text-gray-600">...</div>
-                           <div className="text-blue-400">{"</div>"}</div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-                     </motion.div>
+                     </div>
+                     <div className="space-y-2 opacity-80 leading-relaxed">
+                        <div className="text-[#C9A96E]">{"{% schema %}"}</div>
+                        <div>{"{"}</div>
+                        <div className="pl-4">"name": <span className="text-[#4ADE80]">"AI Hero Banner"</span>,</div>
+                        <div className="pl-4">"settings": [</div>
+                        <div className="pl-8">{"{ \"type\": \"text\", \"id\": \"title\" }"},</div>
+                        <div className="pl-8">{"{ \"type\": \"image_picker\" }"}</div>
+                        <div className="pl-4">]</div>
+                        <div>{"}"}</div>
+                        <div className="text-[#C9A96E]">{"{% endschema %}"}</div>
+                        <div className="text-[#60A5FA]">{"<div class=\"ai-hero-banner\">"}</div>
+                        <div className="pl-4">...</div>
+                        <div className="text-[#60A5FA]">{"</div>"}</div>
+                     </div>
+                     <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#161616] to-transparent" />
                   </div>
                </div>
 
                {/* Bottom Feature List Section 3 */}
                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   {[
-                     { title: 'AI Generation', desc: 'Describe & Generate', icon: Sparkles },
-                     { title: 'Multiple Styles', desc: 'Modern, Luxury, Minimal', icon: Layers },
-                     { title: 'Fully Editable', desc: 'Customize Everything', icon: Pencil },
-                     { title: 'Export Ready', desc: 'Liquid Code Included', icon: Code },
+                     { title: 'AI Generation', icon: Sparkles },
+                     { title: 'Multiple Styles', icon: Layers },
+                     { title: 'Fully Editable', icon: Pencil },
+                     { title: 'Export Ready', icon: Code },
                   ].map((item, i) => (
-                     <div key={i} className="flex items-center gap-5 p-8 bg-[#FBF9F7] rounded-[2.5rem] border border-[#F3EFE9] group hover:border-[#C9A96E] transition-all duration-500">
+                     <div key={i} className="flex items-center gap-5 p-8 bg-[#FBF9F7] rounded-[2.5rem] border border-[#F3EFE9] group transition-all duration-500">
                         <div className="h-12 w-12 bg-white rounded-2xl shadow-sm flex items-center justify-center text-[#C9A96E] group-hover:scale-110 transition-transform ring-1 ring-gray-100">
                            <item.icon className="h-6 w-6 stroke-[1.5]" />
                         </div>
                         <div>
                            <h4 className="text-[14px] font-black uppercase tracking-tight">{item.title}</h4>
-                           <p className="text-[11px] text-[#888] font-medium">{item.desc}</p>
+                           <p className="text-[11px] text-gray-400 font-medium">Professional Design</p>
                         </div>
                      </div>
                   ))}

@@ -65,18 +65,18 @@ export default function HeroScandinavianMinimal() {
         )}>
            <div className="space-y-4">
               <div className="aspect-[4/5] bg-[#f0f0ed] rounded-[2px] shadow-sm relative overflow-hidden group">
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
+                 <div className="absolute inset-0 bg-[url('/assets/images/hero1.jpeg')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
               </div>
               <div className="aspect-square bg-[#f4f4f1] rounded-[2px] shadow-sm relative overflow-hidden group">
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
+                 <div className="absolute inset-0 bg-[url('/assets/images/hero-penthouse.jpg')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
               </div>
            </div>
            <div className="pt-12 space-y-4">
               <div className="aspect-square bg-[#ecebe4] rounded-[2px] shadow-sm relative overflow-hidden group">
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1616486341353-c58333d157b8?q=80&w=2145&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
+                 <div className="absolute inset-0 bg-[url('/assets/images/hero-liquid-gold.jpg')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
               </div>
               <div className="aspect-[4/5] bg-[#fdfdfc] rounded-[2px] shadow-sm relative overflow-hidden group border border-[#f0f0ed]">
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
+                 <div className="absolute inset-0 bg-[url('/assets/images/hero1.jpeg')] bg-cover bg-center transition-transform duration-[3s] group-hover:scale-105" />
               </div>
            </div>
         </div>
