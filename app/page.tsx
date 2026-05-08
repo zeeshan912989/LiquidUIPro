@@ -351,55 +351,9 @@ export default function LandingPage() {
             </div>
          </section>
 
-         {/* Engine Stats Banner */}
-         <section className="py-32 px-6 md:px-12 bg-white">
-            <div className="max-w-[1400px] mx-auto">
-               <div className="bg-[#0A0A0A] rounded-[4rem] p-16 md:p-24 relative overflow-hidden text-center text-white shadow-2xl">
-                  <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#C9A96E]/10 to-transparent pointer-events-none" />
-                  <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-20 italic">The Engine in <span className="text-[#C9A96E]">Numbers.</span></h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-                     {[
-                        { label: 'Artifacts', val: '80+' },
-                        { label: 'Downloads', val: '2.5k' },
-                        { label: 'Categories', val: '12' },
-                        { label: 'Stars', val: '1.2k' },
-                     ].map((stat, idx) => (
-                        <div key={idx} className="flex flex-col items-center">
-                           <span className="text-5xl md:text-7xl font-black text-[#C9A96E] mb-4 tracking-tighter">{stat.val}</span>
-                           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500">{stat.label}</span>
-                        </div>
-                     ))}
-                  </div>
-               </div>
-            </div>
-         </section>
-
-         {/* Global Deployment Banner (Final CTA) */}
-         <section className="py-32 px-6 md:px-12 bg-[#FBF9F7]">
-            <div className="max-w-[1400px] mx-auto">
-               <div className="flex flex-col lg:flex-row items-center justify-between gap-16 p-16 md:p-24 bg-white border border-[#E4E0D9] rounded-[4rem] relative overflow-hidden shadow-sm">
-                  <div className="lg:w-1/2">
-                     <div className="inline-block px-4 py-1.5 bg-[#FBF9F7] border border-[#F3EFE9] rounded-full text-[12px] font-bold text-[#C9A96E] mb-8 uppercase tracking-widest">Join the Elite</div>
-                     <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">Ready to <span className="text-[#C9A96E]">Scale</span> your <br /> Shopify Storefront?</h2>
-                     <p className="text-lg text-[#666] mb-12 max-w-md font-medium leading-relaxed">Gain instant access to the world's most advanced Liquid component library and start building today.</p>
-                     <div className="flex items-center gap-6">
-                        <Link href="/pricing" className="px-10 py-5 bg-[#C9A96E] text-white rounded-xl font-bold shadow-lg shadow-[#C9A96E]/20">Get Pro Access</Link>
-                        <Link href="/features" className="text-sm font-bold text-[#0A0A0A] flex items-center gap-2 group/link">View Components <ArrowRight className="h-4 w-4 group-hover/link:translate-x-2 transition-transform" /></Link>
-                     </div>
-                  </div>
-                  <div className="lg:w-1/3 relative">
-                     <div className="w-full aspect-square bg-[#FBF9F7] rounded-full border border-[#E4E0D9] flex items-center justify-center relative">
-                        <img src="/icon.svg" alt="logo" className="h-32 w-32 object-contain" />
-                        <div className="absolute inset-0 animate-spin-slow pointer-events-none"><div className="absolute top-0 left-1/2 -translate-x-1/2 h-4 w-4 bg-[#C9A96E] rounded-full shadow-lg shadow-[#C9A96E]/50" /></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-
          {/* Bottom Footer Text */}
          <div className="py-8 bg-[#FBF9F7] border-t border-[#E4E0D9] text-center">
-            <p className="text-[14px] font-semibold text-[#555]">Built for Shopify. Design by SHAH. Trusted by Architects.</p>
+            <p className="text-[14px] font-semibold text-[#555]">Built for Shopify. Loved by developers. Trusted by brands.</p>
          </div>
 
       </div>
