@@ -47,14 +47,14 @@ export default function LandingPage() {
       )}>
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="h-11 w-11 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+            <div className="h-12 w-12 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                <img src="/icon.svg" alt="logo" className="h-full w-full object-contain" />
             </div>
             <div className="flex flex-col -space-y-1">
               <span className="text-2xl font-black tracking-tighter uppercase leading-none font-outfit text-[#C9A96E]">LIQUIDUI</span>
               <div className="flex items-center gap-1 w-full">
                 <div className="h-[1px] flex-1 bg-[#E4E0D9]" />
-                <span className="text-[9px] font-black tracking-[0.4em] uppercase text-[#7A7570]">PRO</span>
+                <span className="text-[10px] font-black tracking-[0.4em] uppercase text-[#C9A96E]/80">PRO</span>
                 <div className="h-[1px] flex-1 bg-[#E4E0D9]" />
               </div>
             </div>
