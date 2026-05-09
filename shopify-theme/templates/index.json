@@ -1,33 +1,11 @@
 {
   "sections": {
-    "header": {
-      "type": "header-pro",
-      "settings": {
-        "logo_text": "ELYSÉ PRO"
-      }
-    },
-    "hero": {
+    "main": {
       "type": "hero-video-pro",
-      "settings": {
-        "title": "Define Your Essence",
-        "text": "The 2026 Collection is now available."
-      }
-    },
-    "products": {
-      "type": "product-grid-pro",
-      "settings": {
-        "title": "Bestsellers"
-      }
-    },
-    "footer": {
-      "type": "footer-pro",
       "settings": {}
     }
   },
   "order": [
-    "header",
-    "hero",
-    "products",
-    "footer"
+    "main"
   ]
 }
